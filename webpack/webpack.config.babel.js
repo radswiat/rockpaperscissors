@@ -18,7 +18,7 @@ module.exports = {
 		extensions: ['.js']
 	},
 	entry: {
-		'main': './src/js/main.js'
+		main: './src/js/main.js'
 	},
 	output: {
 		path: path.join(process.cwd(), 'build'),
@@ -39,40 +39,44 @@ module.exports = {
 	module: {
 		rules: [
 			{
-			enforce: 'pre',
-			test: /\.js$/,
-			use: {
-				loader: 'eslint-loader',
-				options: {
-					failOnError: false
-				}
+				enforce: 'pre',
+				test: /\.js$/,
+				use: {
+					loader: 'eslint-loader',
+					options: {
+						failOnError: false
+					}
+				},
+				exclude: [/node_modules/]
 			},
-			exclude: [/node_modules/]
-		},
 			{
-			test: /\.css$/,
-			use: ExtractTextPlugin.extract({
-				fallback: 'style-loader',
-				use: 'css-loader'
-			})
-		},{
-			test: /\.scss$/,
-			use: ExtractTextPlugin.extract({
-				fallback: 'style-loader',
-				use: ['css-loader', 'sass-loader']
-			})
-		},{
-			test: /\.js$/,
-			exclude: [/node_modules/],
-			use: 'babel-loader'
-		},{
-			test: /\.(html)$/,
-			use: {
-				loader: 'html-loader',
-				options: {
-					attrs: [':data-src']
+				test: /\.css$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: 'css-loader'
+				})
+			},
+			{
+				test: /\.scss$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'sass-loader']
+				})
+			},
+			{
+				test: /\.js$/,
+				exclude: [/node_modules/],
+				use: 'babel-loader'
+			},
+			{
+				test: /\.(html)$/,
+				use: {
+					loader: 'html-loader',
+					options: {
+						attrs: [':data-src']
+					}
 				}
 			}
-		}]
+		]
 	}
 };
