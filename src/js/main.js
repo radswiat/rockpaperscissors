@@ -1,4 +1,4 @@
-import print from './module';
 import '../css/main.scss';
+import systemConfig from 'config/system';
 
-print('it works well!');
+console.log(systemConfig);
