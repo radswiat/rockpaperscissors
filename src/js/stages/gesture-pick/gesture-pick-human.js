@@ -43,7 +43,7 @@ export default class GesturePickHuman extends GesturePick {
 	handleGesturePick = (event) => {
 		let gestureType = event.target.getAttribute('type');
 		Store.setState({
-			gestureType
+			[this.player.id]: gestureType
 		});
 		this.handleStageEnd();
 	};

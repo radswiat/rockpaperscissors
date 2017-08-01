@@ -1,6 +1,7 @@
 // import StageGameSelect from 'stages/game-select/game-select';
 import StageGesturePickHuman from 'stages/gesture-pick/gesture-pick-human';
 import StageGesturePickComputer from 'stages/gesture-pick/gesture-pick-computer';
+import StageWinnerBoard from 'stages/winner-board/winner-board';
 
 export default class Game {
 
@@ -18,10 +19,21 @@ export default class Game {
 				{
 					id: 0,
 					type: 'human',
-					name: 'Some name'
+					name: 'Player 1'
 				},
 				{
 					id: 1,
+					type: 'computer',
+					name: null,
+					difficulty: 1
+				},
+				{
+					id: 2,
+					type: 'human',
+					name: 'Player 2'
+				},
+				{
+					id: 3,
 					type: 'computer',
 					name: null,
 					difficulty: 1
@@ -45,7 +57,8 @@ export default class Game {
 
 
 		// stage 3 - winner-board
-
+		let stageWinnerBoard = new StageWinnerBoard();
+		await stageWinnerBoard.run();
 
 		console.log('pick done');
 	}

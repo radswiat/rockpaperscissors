@@ -49,7 +49,7 @@ export default class GesturePickComputer extends GesturePick {
 		let simpleAi = new SimpleAI();
 		let gestureType = await simpleAi.pickGesture();
 		Store.setState({
-			gestureType
+			[this.player.id]: gestureType
 		});
 		this.handleStageEnd();
 	}

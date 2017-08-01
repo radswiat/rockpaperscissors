@@ -9,7 +9,7 @@ export default class State {
 	}
 
 	static getState() {
-
+		return State.__state;
 	}
 
 	static setState(state) {

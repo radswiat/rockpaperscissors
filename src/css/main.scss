@@ -1,7 +1,31 @@
-body {
-	background-color: green;
+$border-gray: #e2e2e2;
 
-	h1 {
-		color: white;
-	}
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.body--dark {
+  background-color: #bfbfbf;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0px auto;
+  padding: 12px 24px;
+}
+
+.view {
+
+}
+
+.form {
+  background: white;
+  padding: 12px 24px;
+}
+
+.form__section {
+  padding: 10px;
+  border: 1px solid $border-gray;
+  margin: 10px 0px;
 }

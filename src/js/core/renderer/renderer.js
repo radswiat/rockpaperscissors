@@ -3,7 +3,8 @@ class Renderer {
 	constructor() {
 		this.screens = {
 			gameSelect: document.getElementById('screen--game-select'),
-			gesturePick: document.getElementById('screen--game-pick-gesture')
+			gesturePick: document.getElementById('screen--game-pick-gesture'),
+			winnerBoard: document.getElementById('screen--game-winner-board')
 		};
 	}
 

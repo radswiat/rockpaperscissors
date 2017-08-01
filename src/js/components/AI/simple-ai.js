@@ -3,7 +3,7 @@ export default class SimpleAI {
 		return new Promise((resolve) => {
 			setTimeout(() => {
 				resolve('paper');
-			}, 2000);
+			}, 500);
 		});
 	}
 }
