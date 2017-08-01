@@ -14,7 +14,9 @@
 	  "root": ["./src/js/"],
 	  "alias": {
 		"components": "./components",
-		"config": "./config"
+		"config": "./config",
+		"core": "./core",
+		"stages": "./stages"
 	  }
 	}]
   ]

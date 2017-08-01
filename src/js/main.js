@@ -1,6 +1,8 @@
 import '../css/main.scss';
 import systemConfig from 'config/system';
 
+import Game from 'core/game/game';
+
 class GameUiInterface {
 
 	static bootstrap() {
@@ -22,8 +24,8 @@ class GameUiInterface {
 
 	handlePlayerVsPlayerGame = () => {
 		console.log('player vs player');
+		new Game();
 	};
-
 
 	handlePlayerVsComputerGame = () => {
 		console.log('player vs computer');
@@ -32,7 +34,6 @@ class GameUiInterface {
 	handleComputerVsComputerGame = () => {
 		console.log('computer vs computer');
 	};
-
 
 }
 
