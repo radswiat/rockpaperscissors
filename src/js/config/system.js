@@ -4,9 +4,9 @@
 export default {
 	UI: {
 		buttons: {
-			playerVsPlayerGameId: 'start-single-player-game',
-			playerVsComputerGameId: 'start-single-player-game',
-			computerVsComputerGameId: 'start-single-player-game'
+			playerVsPlayerGameId: 'player-vs-player-game',
+			playerVsComputerGameId: 'player-vs-computer-game',
+			computerVsComputerGameId: 'computer-vs-computer-game'
 		}
 	}
 }
