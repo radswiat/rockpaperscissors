@@ -38,12 +38,13 @@ export default class Game {
 				let stageGesturePick = new StageGesturePickComputer(player);
 				await stageGesturePick.run();
 			}
-
 		}
-		// for (let i = 2; i; i--) {
-		// 	let stageGesturePick = new StageGesturePick();
-		// 	await stageGesturePick.run(i);
-		// }
+
+		// stage 2
+		// lets skip this one, we gonna add this later on
+
+
+		// stage 3 - winner-board
 
 
 		console.log('pick done');

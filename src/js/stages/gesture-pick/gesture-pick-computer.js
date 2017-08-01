@@ -1,5 +1,5 @@
 import { stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
-import State from 'core/state/state';
+import Store from 'core/store/store';
 import GesturePick from './gesture-pick';
 
 // import AI components
@@ -48,7 +48,7 @@ export default class GesturePickComputer extends GesturePick {
 	async calculateAIPick() {
 		let simpleAi = new SimpleAI();
 		let gestureType = await simpleAi.pickGesture();
-		State.setState({
+		Store.setState({
 			gestureType
 		});
 		this.handleStageEnd();

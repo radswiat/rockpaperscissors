@@ -1,7 +1,7 @@
 import GesturePick from './gesture-pick';
 import { Defer, stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
 import renderer from 'core/renderer/renderer';
-import State from 'core/state/state';
+import Store from 'core/store/store';
 
 import template from './gesture-pick-human.html';
 
@@ -43,7 +43,7 @@ export default class GesturePickHuman extends GesturePick {
 	 */
 	handleGesturePick = (event) => {
 		let gestureType = event.target.getAttribute('type');
-		State.setState({
+		Store.setState({
 			gestureType
 		});
 		this.handleStageEnd();
