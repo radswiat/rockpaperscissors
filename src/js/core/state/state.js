@@ -2,16 +2,20 @@
 // - singleton, but capable of resetting
 export default class State {
 
+	static __state = {};
+
 	constructor() {
 		throw Error('State should not be instantiated');
 	}
 
-	static get() {
+	static getState() {
 
 	}
 
-	static set() {
-
+	static setState(state) {
+		Object.assign(State.__state, state);
+		console.error('------ set state ------');
+		console.log(State.__state);
 	}
 
 }

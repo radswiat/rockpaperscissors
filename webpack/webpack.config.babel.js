@@ -37,17 +37,19 @@ module.exports = {
 		})
 	],
 	module: {
-		rules: [{
-			enforce: 'pre',
-			test: /\.js$/,
-			use: {
-				loader: 'eslint-loader',
-				options: {
-					failOnError: true
-				}
-			},
-			exclude: [/node_modules/]
-		},{
+		rules: [
+		// 	{
+		// 	enforce: 'pre',
+		// 	test: /\.js$/,
+		// 	use: {
+		// 		loader: 'eslint-loader',
+		// 		options: {
+		// 			failOnError: true
+		// 		}
+		// 	},
+		// 	exclude: [/node_modules/]
+		// },
+			{
 			test: /\.css$/,
 			use: ExtractTextPlugin.extract({
 				fallback: 'style-loader',
@@ -63,6 +65,14 @@ module.exports = {
 			test: /\.js$/,
 			exclude: [/node_modules/],
 			use: 'babel-loader'
+		},{
+			test: /\.(html)$/,
+			use: {
+				loader: 'html-loader',
+				options: {
+					attrs: [':data-src']
+				}
+			}
 		}]
 	}
 };

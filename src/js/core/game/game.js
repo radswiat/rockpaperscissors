@@ -9,8 +9,15 @@ export default class Game {
 	}
 
 	async start() {
-		let stageGesturePick = new StageGesturePick();
-		await stageGesturePick.run();
+
+		for (let i = 2; i; i--) {
+			console.log('------ > ' + i)
+			let stageGesturePick = new StageGesturePick();
+			await stageGesturePick.run(i);
+			console.log('------ > done ' + i)
+		}
+
+
 		console.log('pick done');
 	}
 
