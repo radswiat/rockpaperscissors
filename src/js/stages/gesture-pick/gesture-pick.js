@@ -1,6 +1,5 @@
-import { Defer, stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
+import { Defer } from 'core/utils/utils';
 import renderer from 'core/renderer/renderer';
-
 
 export default class GesturePick {
 

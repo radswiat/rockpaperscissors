@@ -38,17 +38,17 @@ module.exports = {
 	],
 	module: {
 		rules: [
-		// 	{
-		// 	enforce: 'pre',
-		// 	test: /\.js$/,
-		// 	use: {
-		// 		loader: 'eslint-loader',
-		// 		options: {
-		// 			failOnError: true
-		// 		}
-		// 	},
-		// 	exclude: [/node_modules/]
-		// },
+			{
+			enforce: 'pre',
+			test: /\.js$/,
+			use: {
+				loader: 'eslint-loader',
+				options: {
+					failOnError: false
+				}
+			},
+			exclude: [/node_modules/]
+		},
 			{
 			test: /\.css$/,
 			use: ExtractTextPlugin.extract({

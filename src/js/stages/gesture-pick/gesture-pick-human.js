@@ -1,6 +1,5 @@
 import GesturePick from './gesture-pick';
-import { Defer, stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
-import renderer from 'core/renderer/renderer';
+import { stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
 import Store from 'core/store/store';
 
 import template from './gesture-pick-human.html';

@@ -9,4 +9,4 @@ export default {
 			computerVsComputerGameId: 'computer-vs-computer-game'
 		}
 	}
-}
+};

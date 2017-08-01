@@ -34,7 +34,7 @@ export default class Game {
 			if (player.type === 'human') {
 				let stageGesturePick = new StageGesturePickHuman(player);
 				await stageGesturePick.run();
-			} else if(player.type === 'computer') {
+			} else if (player.type === 'computer') {
 				let stageGesturePick = new StageGesturePickComputer(player);
 				await stageGesturePick.run();
 			}

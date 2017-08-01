@@ -4,7 +4,7 @@ class Renderer {
 		this.screens = {
 			gameSelect: document.getElementById('screen--game-select'),
 			gesturePick: document.getElementById('screen--game-pick-gesture')
-		}
+		};
 	}
 
 	clear() {
