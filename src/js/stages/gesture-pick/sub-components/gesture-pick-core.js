@@ -28,6 +28,7 @@ export default class GesturePickCore {
 
 	/**
 	 * Handle stage start
+	 * - show adequate screen
 	 */
 	handleStageStart() {
 		// clear renderer view
@@ -42,12 +43,16 @@ export default class GesturePickCore {
 
 	/**
 	 * Handle stage end
+	 * - clear view
+	 * - resolve stage
 	 */
 	handleStageEnd() {
 		view.clear();
 		// set new store state
+		let players = Store.getState('players');
+		players[this.player.id] = this.player;
 		Store.setState({
-			[this.player.id]: this.player
+			players
 		});
 		// resolve stage
 		this.deferedStageRun.resolve();

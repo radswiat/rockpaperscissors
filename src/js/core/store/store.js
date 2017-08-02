@@ -8,8 +8,8 @@ export default class State {
 		throw Error('State should not be instantiated');
 	}
 
-	static getState() {
-		return State.__state;
+	static getState(state) {
+		return State.__state[state] || {};
 	}
 
 	static setState(state) {

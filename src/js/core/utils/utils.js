@@ -26,3 +26,7 @@ export function Defer() {
 	this.promise.then = this.promise.then.bind(this.promise);
 	this.promise.catch = this.promise.catch.bind(this.promise);
 }
+
+export function isDefined(val) {
+	return typeof val !== 'undefined';
+}

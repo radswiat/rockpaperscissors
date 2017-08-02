@@ -26,6 +26,8 @@ export default class WinnerBoard {
 
 	/**
 	 * Handle stage start
+	 * - show adequate screen
+	 * - display winner
 	 */
 	handleStageStart() {
 		// clear renderer view
@@ -42,6 +44,8 @@ export default class WinnerBoard {
 
 	/**
 	 * Handle stage end
+	 * - clear view
+	 * - resolve stage
 	 */
 	handleStageEnd() {
 		view.clear();
@@ -56,14 +60,14 @@ export default class WinnerBoard {
 	 * - call render
 	 */
 	displayWinner() {
-		let playerStates = Store.getState('players');
+		let players = Store.getState('players');
 
 		// convert playerStates to array
-		let playerStatesArray = Object.keys(playerStates).map((player) => {
-			return playerStates[player];
+		let playersArray = Object.keys(players).map((player) => {
+			return players[player];
 		});
 
-		let winner = this.getWinner(playerStatesArray);
+		let winner = this.getWinner(playersArray);
 		this.render(template, {
 			winner
 		});

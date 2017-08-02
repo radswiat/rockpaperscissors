@@ -8,7 +8,7 @@
 </head>
 <body class="body--dark">
 	<div class="container">
-		<div class="view" id="screen--game-select">
+		<div class="view" id="screen--introduction">
 			<div class="section">
 				<h1>Rock Paper Scissors game</h1>
 				<h3>Features</h3>
@@ -21,24 +21,11 @@
 					</li>
 				</ul>
 			</div>
-			<div class="section">
-				<div id="player-vs-computer-game" class="button button--block">
-					Player vs Computer game ( easy )
-				</div>
-				<div id="player-vs-computer-game-hard" class="button button--block">
-					Player vs Computer game ( hard )
-				</div>
-				<div id="player-vs-player-game" class="button button--block">
-					Player vs Player game
-				</div>
-				<div id="computer-vs-computer-game" class="button button--block">
-					Computer vs Computer game
-				</div>
-				<div id="mix-game" class="button button--block">
-					Player x10 + Computer game
-				</div>
+			<div id="start-game" class="button button--primary">
+				Start game
 			</div>
 		</div>
+		<div id="screen--game-select" class="view" style="display: none"></div>
 		<div id="screen--game-pick-gesture" class="view" style="display: none"></div>
 		<div id="screen--game-show-gestures" class="view" style="display: none"></div>
 		<div id="screen--game-winner-board" class="view" style="display: none"></div>

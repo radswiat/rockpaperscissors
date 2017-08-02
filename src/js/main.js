@@ -1,5 +1,4 @@
 import '../css/main.scss';
-import systemConfig from 'config/system';
 
 import Game from 'core/game/game';
 
@@ -10,71 +9,53 @@ class GameUiInterface {
 	}
 
 	constructor() {
-		this.bindUiControls();
+		this.bindEvents();
 	}
 
-	bindUiControls() {
-		document.getElementById(systemConfig.UI.buttons.playerVsPlayerGameId)
-			.addEventListener('click', this.handlePlayerVsPlayerGame);
-		document.getElementById(systemConfig.UI.buttons.playerVsComputerGameId)
-			.addEventListener('click', this.handlePlayerVsComputerGame);
-		document.getElementById(systemConfig.UI.buttons.computerVsComputerGameId)
-			.addEventListener('click', this.handleComputerVsComputerGame);
+	bindEvents() {
+		document.getElementById('start-game').addEventListener('click', this.handleGameStart);
 	}
 
-	handlePlayerVsPlayerGame = () => {
-		new Game({
-			players: [
-				{
-					id: 0,
-					type: 'human',
-					name: 'Player 1'
-				},
-				{
-					id: 1,
-					type: 'human',
-					name: 'Player 2'
-				}
-			]
-		});
+	handleGameStart = () => {
+		let game = new Game();
+		game.start();
 	};
 
-	handlePlayerVsComputerGame = () => {
-		new Game({
-			players: [
-				{
-					id: 0,
-					type: 'human',
-					name: 'Player 1'
-				},
-				{
-					id: 1,
-					type: 'computer',
-					name: 'Computer 1',
-					difficulty: 1
-				}
-			]
-		});
-	};
-
-	handleComputerVsComputerGame = () => {
-		new Game({
-			players: [
-				{
-					id: 0,
-					type: 'computer',
-					name: 'Computer 1',
-					difficulty: 1
-				},
-				{
-					id: 1,
-					type: 'computer',
-					name: 'Computer 2',
-					difficulty: 1
-				}
-			]
-		});
-	};
+	// handlePlayerVsComputerGame = () => {
+	// 	new Game({
+	// 		players: [
+	// 			{
+	// 				id: 0,
+	// 				type: 'human',
+	// 				name: 'Player 1'
+	// 			},
+	// 			{
+	// 				id: 1,
+	// 				type: 'computer',
+	// 				name: 'Computer 1',
+	// 				difficulty: 1
+	// 			}
+	// 		]
+	// 	});
+	// };
+	// handleComputerVsComputerGame = () => {
+	// 	new Game({
+	// 		players: [
+	// 			{
+	// 				id: 0,
+	// 				type: 'computer',
+	// 				name: 'Computer 1',
+	// 				difficulty: 1
+	// 			},
+	// 			{
+	// 				id: 1,
+	// 				type: 'computer',
+	// 				name: 'Computer 2',
+	// 				difficulty: 1
+	// 			}
+	// 		]
+	// 	});
+	// };
 
 }
 
