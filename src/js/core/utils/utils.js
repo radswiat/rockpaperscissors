@@ -26,3 +26,7 @@ export function Defer() {
 export function isDefined(val) {
 	return typeof val !== 'undefined';
 }
+
+export function getUniformRandomNumber(max, min) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
