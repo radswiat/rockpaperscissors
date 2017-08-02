@@ -1,15 +1,20 @@
-import GesturePick from './gesture-pick-core';
-import { stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
-import Store from 'core/store/store';
+import GesturePickCore from './gesture-pick-core';
 
-import template from './gesture-pick-human.html';
+import template from './gesture-pick-human.ejs';
 
-export default class GesturePickHuman extends GesturePick {
+/**
+ * Gesture Pick Human
+ * - this class extends GesturePickCore
+ * - it implements methods of original class what makes it easy extend or change behaviour
+ * Generally it gets the gesture from a UI, allowing user to pick
+ * - once user pick gesture handleStageEnd() is called and stage promise resolves
+ */
+export default class GesturePickHuman extends GesturePickCore {
 
 	/**
 	 * Run
 	 * @public
-	 * @implements run
+	 * @override run
 	 * @returns {Promise.<Defer|*>}
 	 */
 	run() {
@@ -19,7 +24,7 @@ export default class GesturePickHuman extends GesturePick {
 	/**
 	 * Handle stage start
 	 * @private
-	 * @implements handleStageStart
+	 * @override handleStageStart
 	 */
 	handleStageStart() {
 		super.handleStageStart();
@@ -30,7 +35,7 @@ export default class GesturePickHuman extends GesturePick {
 	/**
 	 * Handle stage start
 	 * @private
-	 * @implements handleStageEnd
+	 * @override handleStageEnd
 	 */
 	handleStageEnd() {
 		super.handleStageEnd();
@@ -42,9 +47,7 @@ export default class GesturePickHuman extends GesturePick {
 	 */
 	handleGesturePick = (event) => {
 		let gestureType = event.target.getAttribute('type');
-		Store.setState({
-			[this.player.id]: gestureType
-		});
+		this.player.pickedGestureType = gestureType;
 		this.handleStageEnd();
 	};
 
@@ -62,12 +65,10 @@ export default class GesturePickHuman extends GesturePick {
 
 	/**
 	 * Render html
+	 * @override render
 	 */
 	render() {
-		clearAllNodes(this.content);
-		let html = stringToHtmlNode(template);
-		html.getElementsByClassName('player-name')[0].innerHTML = this.player.name;
-		this.content.appendChild(html);
+		super.render(template);
 	}
 
 }

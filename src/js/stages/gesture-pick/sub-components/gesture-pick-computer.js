@@ -1,19 +1,24 @@
-import { stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
-import Store from 'core/store/store';
-import GesturePick from './gesture-pick-core';
+import GesturePickCore from './gesture-pick-core';
 
 // import AI components
 import SimpleAI from 'components/AI/simple-ai';
 
 // import template
-import template from './gesture-pick-computer.html';
+import template from './gesture-pick-computer.ejs';
 
-export default class GesturePickComputer extends GesturePick {
+/**
+ * Gesture Pick Computer
+ * - this class extends GesturePickCore
+ * - it implements methods of original class what makes it easy extend or change behaviour
+ * Generally it gets the gesture from a AI
+ * - once AI pick gesture handleStageEnd() is called and stage promise resolves
+ */
+export default class GesturePickComputer extends GesturePickCore {
 
 	/**
 	 * Run
 	 * @public
-	 * @implements run
+	 * @override run
 	 * @returns {Promise.<Defer|*>}
 	 */
 	run() {
@@ -23,45 +28,41 @@ export default class GesturePickComputer extends GesturePick {
 	/**
 	 * Handle stage start
 	 * @private
-	 * @implements handleStageStart
+	 * @override handleStageStart
 	 */
 	handleStageStart() {
 		super.handleStageStart();
 		this.render();
-		this.calculateAIPick();
+		this.handleGesturePick();
 	}
 
 	/**
 	 * Handle stage start
 	 * @private
-	 * @implements handleStageEnd
+	 * @override handleStageEnd
 	 */
 	handleStageEnd() {
 		super.handleStageEnd();
 	}
 
 	/**
-	 * Calculate AI pick
+	 * Handle gesture pick
 	 * - choose AI to be used ( depends on difficulty setting )
 	 * - async as to be future proof
 	 */
-	async calculateAIPick() {
+	async handleGesturePick() {
 		let simpleAi = new SimpleAI();
 		let gestureType = await simpleAi.pickGesture();
-		Store.setState({
-			[this.player.id]: gestureType
-		});
+		this.player.pickedGestureType = gestureType;
 		this.handleStageEnd();
 	}
 
 	/**
 	 * Render html
+	 * @override render
 	 */
 	render() {
-		clearAllNodes(this.content);
-		let html = stringToHtmlNode(template);
-		html.getElementsByClassName('player-name')[0].innerHTML = this.player.name;
-		this.content.appendChild(html);
+		super.render(template);
 	}
 
 }

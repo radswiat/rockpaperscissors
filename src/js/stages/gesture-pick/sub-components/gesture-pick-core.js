@@ -1,7 +1,9 @@
 import { Defer } from 'core/utils/utils';
 import renderer from 'core/renderer/renderer';
+import { stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
+import Store from 'core/store/store';
 
-export default class GesturePick {
+export default class GesturePickCore {
 
 	screenId = 'gesturePick';
 
@@ -42,7 +44,20 @@ export default class GesturePick {
 	 */
 	handleStageEnd() {
 		renderer.clear();
+		// set new store state
+		Store.setState({
+			[this.player.id]: this.player
+		});
+		// resolve stage
 		this.deferedStageRun.resolve();
 	}
 
+	render(template, data = {}) {
+		// merge data with original player data
+		data = Object.assign(this.player, data);
+		clearAllNodes(this.content);
+		let html = stringToHtmlNode(template(data));
+		this.content.appendChild(html);
+	}
 }
+

@@ -76,6 +76,10 @@ module.exports = {
 						attrs: [':data-src']
 					}
 				}
+			},
+			{
+				test: /\.ejs$/,
+				loader: 'ejs-compiled-loader'
 			}
 		]
 	}
