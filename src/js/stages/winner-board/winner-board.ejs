@@ -1,0 +1,14 @@
+<div class="section">
+	<h2>And the winner is ....</h2>
+	<hr>
+	<div>
+		<%if (winner !== null) { %>
+			<%=winner.name %> with <%=winner.pickedGestureType %>
+		<% } else { %>
+			Draw!
+		<% } %>
+	</div>
+	<div class="button button--primary">
+		Reset
+	</div>
+</div>

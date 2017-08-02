@@ -27,6 +27,7 @@ export default class Game {
 		await stageWinnerBoard.run();
 
 		console.log('pick done');
+		this.start();
 	}
 
 }

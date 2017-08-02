@@ -1,12 +1,19 @@
-import { Defer, stringToHtmlNode } from 'core/utils/utils';
+import { Defer, stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
 import Store from 'core/store/store';
-import renderer from 'core/renderer/renderer';
+import view from 'core/view/view';
 
-import template from './winner-board.html';
+import template from './winner-board.ejs';
 
+/**
+ * Winner board stage
+ * - get all players picks
+ * - find a winner
+ * - supports tournament type when more then 2 players
+ * @class
+ */
 export default class WinnerBoard {
 
-	screenId = 'winnerBoard';
+	screenHtmlId = 'screen--game-winner-board';
 
 	async run() {
 		// create stage run promise
@@ -22,13 +29,13 @@ export default class WinnerBoard {
 	 */
 	handleStageStart() {
 		// clear renderer view
-		renderer.clear();
+		view.clear();
 
 		// show new screen
-		renderer.showScreen(this.screenId);
+		view.show(this.screenHtmlId);
 
 		// get screen content
-		this.content = document.getElementById('screen--game-winner-board');
+		this.content = view.getContent(this.screenHtmlId);
 
 		this.displayWinner();
 	}
@@ -37,10 +44,17 @@ export default class WinnerBoard {
 	 * Handle stage end
 	 */
 	handleStageEnd() {
-		renderer.clear();
+		view.clear();
 		this.deferedStageRun.resolve();
 	}
 
+	/**
+	 * Display winner
+	 * - get all players from store
+	 * - convert players object to array ( simplifies iterations )
+	 * - get winner
+	 * - call render
+	 */
 	displayWinner() {
 		let playerStates = Store.getState('players');
 
@@ -50,9 +64,9 @@ export default class WinnerBoard {
 		});
 
 		let winner = this.getWinner(playerStatesArray);
-		let html = stringToHtmlNode(template);
-		html.getElementsByClassName('winner')[0].outerHTML = winner || 'draw';
-		this.content.appendChild(html);
+		this.render(template, {
+			winner
+		});
 	}
 
 	/**
@@ -98,22 +112,45 @@ export default class WinnerBoard {
 	 * @param player2Gesture
 	 * @returns {*}
 	 */
-	getPairWinner(player1Gesture, player2Gesture) {
+	getPairWinner(player1, player2) {
 		let gestures = {
 			paper: ['rock'],
 			rock: ['scissors'],
 			scissors: ['paper']
 		};
 
-		if (player1Gesture === player2Gesture) {
+		if (player1.pickedGestureType === player2.pickedGestureType) {
 			return null;
 		}
 
-		if (gestures[player1Gesture].indexOf(player2Gesture) >= 0) {
-			return player1Gesture;
+		if (gestures[player1.pickedGestureType].indexOf(player2.pickedGestureType) >= 0) {
+			return player1;
 		}
 
-		return player2Gesture;
+		return player2;
+	}
+
+	/**
+	 * Render
+	 * @param template
+	 * @param data
+	 */
+	render(template, data) {
+		let html = stringToHtmlNode(template(data));
+		clearAllNodes(this.content);
+		this.content.appendChild(html);
+		this.bindResetBtnEvent();
+	}
+
+	/**
+	 * Bind reset btn event
+	 * - reset will trigger handleStageEnd
+	 * - stage will close, and game should carry to next step ( or to the end )
+	 */
+	bindResetBtnEvent() {
+		this.content.getElementsByClassName('button')[0].addEventListener('click', () => {
+			this.handleStageEnd();
+		});
 	}
 
 }
