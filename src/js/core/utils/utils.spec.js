@@ -1,6 +1,6 @@
 /* global it, describe */
 import { expect } from 'chai';
-import { isDefined, stringToHtmlNode, Defer } from './utils';
+import { isDefined, stringToHtmlNode, Defer, getUniformRandomNumber } from './utils';
 
 describe('js/core/utils/utils.js', () => {
 
@@ -29,6 +29,23 @@ describe('js/core/utils/utils.js', () => {
 			expect(typeof promise).to.be.equal('object');
 			expect(promise.resolve).to.not.be.undefined;
 			expect(promise.reject).to.not.be.undefined;
+		});
+	});
+
+	describe('getUniformRandomNumber', () => {
+		it('should be uniform random number', () => {
+			let stats = {
+				0: 0,
+				1: 0,
+				2: 0
+			};
+			for (let i = 35000; i; i--) {
+				let w = getUniformRandomNumber(-1, 3)
+				stats[w]++;
+			}
+			expect(stats[0]).to.be.least(10000);
+			expect(stats[1]).to.be.least(10000);
+			expect(stats[2]).to.be.least(10000);
 		});
 	});
 });

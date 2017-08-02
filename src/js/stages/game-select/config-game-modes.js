@@ -10,6 +10,21 @@ export default {
 				id: 1,
 				type: 'computer',
 				name: 'Computer 1',
+				difficulty: 0
+			}
+		]
+	},
+	'player-computer-medium': {
+		players: [
+			{
+				id: 0,
+				type: 'human',
+				name: 'Player 1'
+			},
+			{
+				id: 1,
+				type: 'computer',
+				name: 'Computer 1',
 				difficulty: 1
 			}
 		]
@@ -49,7 +64,8 @@ export default {
 			{
 				id: 0,
 				type: 'computer',
-				name: 'Computer 1'
+				name: 'Computer 1',
+				difficulty: 0
 			},
 			{
 				id: 1,

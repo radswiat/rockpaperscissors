@@ -68,6 +68,16 @@ export default class WinnerBoard {
 		});
 
 		let winner = this.getWinner(playersArray);
+
+		// add stats into store
+		if (winner) {
+			let stats = Store.getState('stats');
+			stats.push(winner.pickedGestureType);
+			Store.setState({
+				stats
+			});
+		}
+
 		this.render(template, {
 			winner
 		});

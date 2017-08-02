@@ -24,7 +24,8 @@ describe('js/core/store/store.js', () => {
 		assert.deepEqual(Store.getState(), {
 			test: 1,
 			A: 2,
-			B: 3
+			B: 3,
+			stats: []
 		});
 	});
 

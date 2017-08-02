@@ -2,7 +2,9 @@
 // - singleton, but capable of resetting
 export default class State {
 
-	static __state = {};
+	static __state = {
+		stats: []
+	};
 
 	constructor() {
 		throw Error('State should not be instantiated');

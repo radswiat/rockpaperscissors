@@ -2,6 +2,8 @@ import GesturePickCore from './gesture-pick-core';
 
 // import AI components
 import SimpleAI from 'components/AI/simple-ai';
+import MediumAI from 'components/AI/medium-ai';
+import HardAI from 'components/AI/hard-ai';
 
 // import template
 import template from './gesture-pick-computer.ejs';
@@ -51,7 +53,9 @@ export default class GesturePickComputer extends GesturePickCore {
 	 * - async as to be future proof
 	 */
 	async handleGesturePick() {
-		let simpleAi = new SimpleAI();
+		// TODO: this can be done better, no error catching etc
+		let AIClass = [SimpleAI, MediumAI, HardAI][this.player.difficulty];
+		let simpleAi = new AIClass();
 		let gestureType = await simpleAi.pickGesture();
 		this.player.pickedGestureType = gestureType;
 		this.handleStageEnd();
