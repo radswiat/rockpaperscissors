@@ -59,7 +59,9 @@ export default class GesturePickComputer extends GesturePick {
 	 */
 	render() {
 		clearAllNodes(this.content);
-		this.content.appendChild(stringToHtmlNode(template));
+		let html = stringToHtmlNode(template);
+		html.getElementsByClassName('player-name')[0].innerHTML = this.player.name;
+		this.content.appendChild(html);
 	}
 
 }

@@ -1,0 +1,24 @@
+.button {
+  min-width: 60px;
+  padding: 10px 24px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid $border-gray;
+}
+
+.button:hover {
+  background: lighten($border-gray, 10);
+}
+
+.button--primary {
+  background: $accent-blue;
+  color: white;
+}
+
+.button--block {
+  display: block;
+  margin: 12px;
+}
+

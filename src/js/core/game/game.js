@@ -5,44 +5,14 @@ import StageWinnerBoard from 'stages/winner-board/winner-board';
 
 export default class Game {
 
-	constructor() {
-		console.warn('construct game');
+	constructor(gameConfig) {
+		this.gameConfig = gameConfig;
 		this.start();
 	}
 
 	async start() {
-
-		// hardcoded game config
-		// todo: should be passed into Game constructor
-		let gameConfig = {
-			players: [
-				{
-					id: 0,
-					type: 'human',
-					name: 'Player 1'
-				},
-				{
-					id: 1,
-					type: 'computer',
-					name: null,
-					difficulty: 1
-				},
-				{
-					id: 2,
-					type: 'human',
-					name: 'Player 2'
-				},
-				{
-					id: 3,
-					type: 'computer',
-					name: null,
-					difficulty: 1
-				}
-			]
-		};
-
 		// stage 1 - gesture pick
-		for (let player of gameConfig.players) {
+		for (let player of this.gameConfig.players) {
 			if (player.type === 'human') {
 				let stageGesturePick = new StageGesturePickHuman(player);
 				await stageGesturePick.run();

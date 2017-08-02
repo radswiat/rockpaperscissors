@@ -23,16 +23,57 @@ class GameUiInterface {
 	}
 
 	handlePlayerVsPlayerGame = () => {
-		console.log('player vs player');
-		new Game();
+		new Game({
+			players: [
+				{
+					id: 0,
+					type: 'human',
+					name: 'Player 1'
+				},
+				{
+					id: 1,
+					type: 'human',
+					name: 'Player 2'
+				}
+			]
+		});
 	};
 
 	handlePlayerVsComputerGame = () => {
-		console.log('player vs computer');
+		new Game({
+			players: [
+				{
+					id: 0,
+					type: 'human',
+					name: 'Player 1'
+				},
+				{
+					id: 1,
+					type: 'computer',
+					name: 'Computer 1',
+					difficulty: 1
+				}
+			]
+		});
 	};
 
 	handleComputerVsComputerGame = () => {
-		console.log('computer vs computer');
+		new Game({
+			players: [
+				{
+					id: 0,
+					type: 'computer',
+					name: 'Computer 1',
+					difficulty: 1
+				},
+				{
+					id: 1,
+					type: 'computer',
+					name: 'Computer 2',
+					difficulty: 1
+				}
+			]
+		});
 	};
 
 }

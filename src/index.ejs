@@ -7,45 +7,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="body--dark">
-	<div class="view container" id="screen--game-select">
-		<form class="form">
-			<div class="form__section">
-				<input type="text" placeholder="Player name" value="Player 1">
-				<select id="player-type" name="select">
-					<option value="value1">Human</option>
-					<option value="value2">Computer</option>
-				</select>
-				<select id="computer-difficulty" name="select">
-					<option value="value1">Easy</option>
-					<option value="value2">Hard</option>
-				</select>
+	<div class="container">
+		<div class="view" id="screen--game-select">
+			<div class="section">
+				<h1>Rock Paper Scissors game</h1>
+				<p>Lore ipsum</p>
 			</div>
-			<div class="form__section">
-				<input type="text" placeholder="Player name" value="Player 2">
-				<select id="player-type" name="select">
-					<option value="value1">Human</option>
-					<option value="value2">Computer</option>
-				</select>
-				<select id="computer-difficulty" name="select">
-					<option value="value1">Easy</option>
-					<option value="value2">Hard</option>
-				</select>
+			<div class="section">
+				<div id="player-vs-computer-game" class="button button--block">
+					Player vs Computer game ( easy )
+				</div>
+				<div id="player-vs-computer-game-hard" class="button button--block">
+					Player vs Computer game ( hard )
+				</div>
+				<div id="player-vs-player-game" class="button button--block">
+					Player vs Player game
+				</div>
+				<div id="computer-vs-computer-game" class="button button--block">
+					Computer vs Computer game
+				</div>
+				<div id="mix-game" class="button button--block">
+					Player x10 + Computer game
+				</div>
 			</div>
-			<div class="form__section">
-				<input type="text" placeholder="Player name" value="Player 3">
-				<select id="player-type" name="select">
-					<option value="value1">Human</option>
-					<option value="value2">Computer</option>
-				</select>
-				<select id="computer-difficulty" name="select">
-					<option value="value1">Easy</option>
-					<option value="value2">Hard</option>
-				</select>
-			</div>
-		</form>
+		</div>
+		<div id="screen--game-pick-gesture" class="view" style="display: none"></div>
+		<div id="screen--game-show-gestures" class="view" style="display: none"></div>
+		<div id="screen--game-winner-board" class="view" style="display: none"></div>
 	</div>
-	<div id="screen--game-pick-gesture" style="display: none"></div>
-	<div id="screen--game-show-gestures" style="display: none"></div>
-	<div id="screen--game-winner-board" style="display: none"></div>
 </body>
 </html>

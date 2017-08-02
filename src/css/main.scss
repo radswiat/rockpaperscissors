@@ -1,4 +1,9 @@
-$border-gray: #e2e2e2;
+$border-gray: #d0d0d0;
+$accent-blue: #2196f3;
+
+@import './components/button.scss';
+@import './components/form';
+@import './components/options.scss';
 
 body {
   padding: 0;
@@ -15,17 +20,15 @@ body {
   padding: 12px 24px;
 }
 
-.view {
+.container--center {
 
 }
 
-.form {
-  background: white;
+.section {
   padding: 12px 24px;
 }
 
-.form__section {
-  padding: 10px;
-  border: 1px solid $border-gray;
-  margin: 10px 0px;
+.view {
+  margin: 24px;
+  background: white;
 }
