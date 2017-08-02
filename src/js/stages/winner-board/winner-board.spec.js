@@ -23,7 +23,7 @@ describe('js/stages/winner-board/winner-board.js', () => {
 	it('should call getWinner and return scissors', () => {
 		let winner = winnerBoardStage.getWinner([
 			{ id: 0, 	pickedGestureType: 'scissors'	},
-			{ 	id: 1, 	pickedGestureType: 'paper' 		}
+			{ id: 1, 	pickedGestureType: 'paper' 		}
 		]);
 		expect(winner.id).to.be.equal(0);
 	});
@@ -31,7 +31,7 @@ describe('js/stages/winner-board/winner-board.js', () => {
 	it('should call getWinner and return paper', () => {
 		let winner = winnerBoardStage.getWinner([
 			{ id: 0, 	pickedGestureType: 'rock'		},
-			{ 	id: 1, 	pickedGestureType: 'paper' 	}
+			{ id: 1, 	pickedGestureType: 'paper' 	}
 		]);
 		expect(winner.id).to.be.equal(1);
 	});
@@ -39,7 +39,7 @@ describe('js/stages/winner-board/winner-board.js', () => {
 	it('should call getWinner and return null ( draw )', () => {
 		let winner = winnerBoardStage.getWinner([
 			{ id: 0, 	pickedGestureType: 'rock'		},
-			{ 	id: 1, 	pickedGestureType: 'rock' 	}
+			{ id: 1, 	pickedGestureType: 'rock' 		}
 		]);
 		expect(winner).to.be.equal(null);
 	});
@@ -47,13 +47,13 @@ describe('js/stages/winner-board/winner-board.js', () => {
 	it('should call getWinner and return null ( draw )', () => {
 		let winner = winnerBoardStage.getWinner([
 			{ id: 0, 	pickedGestureType: 'scissors'	},
-			{ 	id: 1, 	pickedGestureType: 'paper' 		},
+			{ id: 1, 	pickedGestureType: 'paper' 		},
 			{ id: 2, 	pickedGestureType: 'rock'			},
-			{ id: 3, 	pickedGestureType: 'rock' 		},
-			{ 	id: 4, 	pickedGestureType: 'paper'		},
+			{ id: 3, 	pickedGestureType: 'rock' 			},
+			{ id: 4, 	pickedGestureType: 'paper'			},
 			{ id: 5, 	pickedGestureType: 'scissors'	},
-			{ 	id: 6, 	pickedGestureType: 'scissors'	},
-			{ 	id: 7, 	pickedGestureType: 'rock' 		}
+			{ id: 6, 	pickedGestureType: 'scissors'	},
+			{ id: 7, 	pickedGestureType: 'rock' 			}
 		]);
 		expect(winner.id).to.be.equal(7);
 	});
@@ -61,13 +61,13 @@ describe('js/stages/winner-board/winner-board.js', () => {
 	it('should call getWinner and return null ( draw )', () => {
 		let winner = winnerBoardStage.getWinner([
 			{ id: 0, 	pickedGestureType: 'scissors'	},
-			{ 	id: 1, 	pickedGestureType: 'paper' 		},
+			{ id: 1, 	pickedGestureType: 'paper' 		},
 			{ id: 2, 	pickedGestureType: 'scissors'	},
 			{ id: 3, 	pickedGestureType: 'paper' 		},
-			{ 	id: 4, 	pickedGestureType: 'scissors'	},
+			{ id: 4, 	pickedGestureType: 'scissors'	},
 			{ id: 5, 	pickedGestureType: 'paper' 		},
-			{ 	id: 6, 	pickedGestureType: 'scissors'	},
-			{ 	id: 7, 	pickedGestureType: 'paper' 		}
+			{ id: 6, 	pickedGestureType: 'scissors'	},
+			{ id: 7, 	pickedGestureType: 'paper' 		}
 		]);
 		expect(winner).to.be.equal(null);
 	});

@@ -2,6 +2,7 @@ import Store from 'core/store/store';
 
 import StageGameSelect from 'stages/game-select/game-select';
 import StageGesturePick from 'stages/gesture-pick/gesture-pick';
+import StageGesturesReveal from 'stages/gestures-reveal/gestures-reveal';
 import StageWinnerBoard from 'stages/winner-board/winner-board';
 
 /**
@@ -29,7 +30,8 @@ export default class Game {
 
 		// stage 3
 		// lets skip this one, we gonna add this later on
-
+		let stageGesturesReveal = new StageGesturesReveal();
+		await stageGesturesReveal.run();
 
 		// stage 4 - winner-board
 		let stageWinnerBoard = new StageWinnerBoard();

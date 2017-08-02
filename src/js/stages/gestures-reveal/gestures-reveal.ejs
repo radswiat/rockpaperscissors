@@ -1,0 +1,15 @@
+<div class="section">
+	<h2>Players selection</h2>
+	<hr>
+	<ul>
+		<% for(var i=Object.keys(players).length; i; i--) {%>
+			<li>
+				<%= players[i-1].name %>
+				<%= players[i-1].pickedGestureType %>
+			</li>
+		<% } %>
+	</ul>
+	<div class="button button--primary">
+		Continue
+	</div>
+</div>
