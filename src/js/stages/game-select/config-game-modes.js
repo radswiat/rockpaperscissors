@@ -71,7 +71,7 @@ export default {
 				id: 1,
 				type: 'computer',
 				name: 'Computer 2',
-				difficulty: 1
+				difficulty: 2
 			}
 		]
 	},
