@@ -1,11 +1,12 @@
 import { Defer } from 'core/utils/utils';
-import renderer from 'core/renderer/renderer';
+import view from 'core/view/view';
 import { stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
 import Store from 'core/store/store';
 
 export default class GesturePickCore {
 
-	screenId = 'gesturePick';
+	// stage screen id
+	screenHtmlId = 'screen--game-pick-gesture';
 
 	constructor(player) {
 		this.player = player;
@@ -30,20 +31,20 @@ export default class GesturePickCore {
 	 */
 	handleStageStart() {
 		// clear renderer view
-		renderer.clear();
+		view.clear();
 
 		// show new screen
-		renderer.showScreen(this.screenId);
+		view.show(this.screenHtmlId);
 
-		// get screen content
-		this.content = document.getElementById('screen--game-pick-gesture');
+		// get view content
+		this.content = view.getContent(this.screenHtmlId);
 	}
 
 	/**
 	 * Handle stage end
 	 */
 	handleStageEnd() {
-		renderer.clear();
+		view.clear();
 		// set new store state
 		Store.setState({
 			[this.player.id]: this.player
@@ -52,6 +53,11 @@ export default class GesturePickCore {
 		this.deferedStageRun.resolve();
 	}
 
+	/**
+	 * Render
+	 * @param template
+	 * @param data
+	 */
 	render(template, data = {}) {
 		// merge data with original player data
 		data = Object.assign(this.player, data);
