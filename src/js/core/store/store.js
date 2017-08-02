@@ -9,13 +9,14 @@ export default class State {
 	}
 
 	static getState(state) {
+		if (!state) {
+			return State.__state;
+		}
 		return State.__state[state] || {};
 	}
 
 	static setState(state) {
 		Object.assign(State.__state, state);
-		console.error('------ set state ------');
-		console.log(State.__state);
 	}
 
 }

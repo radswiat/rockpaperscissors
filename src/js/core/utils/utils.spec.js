@@ -2,11 +2,6 @@
 import { expect } from 'chai';
 import { isDefined, stringToHtmlNode, Defer } from './utils';
 
-/**
- * This is pre-unit tests testing
- * - global context has to be set correctly
- * - server for testing has to be running
- */
 describe('js/core/utils/utils.js', () => {
 
 	describe('isDefined', () => {

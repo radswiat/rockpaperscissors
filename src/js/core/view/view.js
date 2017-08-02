@@ -20,9 +20,15 @@ class View {
 	/**
 	 * Show view by id
 	 * @param screenHtmlId
+	 * @return {boolean}
 	 */
 	show(screenHtmlId) {
-		document.getElementById(screenHtmlId).style.display = 'block';
+		let element = document.getElementById(screenHtmlId);
+		if (!element) {
+			return false;
+		}
+		element.style.display = 'block';
+		return true;
 	}
 
 	/**
@@ -30,7 +36,12 @@ class View {
 	 * @param screenHtmlId
 	 */
 	hide(screenHtmlId) {
-		document.getElementById(screenHtmlId).style.display = 'block';
+		let element = document.getElementById(screenHtmlId);
+		if (!element) {
+			return false;
+		}
+		element.style.display = 'none';
+		return true;
 	}
 
 	/**
@@ -38,7 +49,7 @@ class View {
 	 * @param screenHtmlId
 	 */
 	getContent(screenHtmlId) {
-		return document.getElementById(screenHtmlId);
+		return document.getElementById(screenHtmlId) || null;
 	}
 
 }

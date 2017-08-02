@@ -99,6 +99,12 @@ export default class WinnerBoard {
 			nextPlayers = [];
 		}
 
+		// when odd number of players
+		// move last player to next round
+		if ((players.length + 1) % 2 === 0) {
+			nextPlayers.push(players.pop());
+		}
+
 		let first = players.shift();
 		let second = players.shift();
 		let winner = this.getPairWinner(first, second);

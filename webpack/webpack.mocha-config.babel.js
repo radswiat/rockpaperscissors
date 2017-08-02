@@ -1,9 +1,8 @@
-import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 module.exports = {
-	devtool: 'cheap-module-source-map',
+	devtool: 'source-map',
 	target: 'node',
 	context: __dirname,
 	resolve: {
@@ -41,7 +40,7 @@ module.exports = {
 			},
 			{
 				test: /\.ejs$/,
-				loader: 'ejs-compiled-loader'
+				loader: 'html-loader' // ejs loader doesn't work with mocha
 			}
 		]
 	},

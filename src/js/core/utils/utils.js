@@ -1,7 +1,11 @@
 export function clearAllNodes(node) {
+	if (!node) {
+		return false;
+	}
 	while (node.firstChild) {
 		node.removeChild(node.firstChild);
 	}
+	return true;
 }
 
 export function stringToHtmlNode(string) {
