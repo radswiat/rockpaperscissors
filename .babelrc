@@ -16,7 +16,7 @@
 		"components": "./components",
 		"config": "./config",
 		"core": "./core",
-		"stages": "./stages"
+		"game-stages": "./game-stages"
 	  }
 	}]
   ]

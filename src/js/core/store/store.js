@@ -18,7 +18,9 @@ export default class State {
 	}
 
 	static setState(state) {
-		Object.assign(State.__state, state);
+		for (let key of Object.keys(state)) {
+			State.__state[key] = state[key];
+		}
 	}
 
 }

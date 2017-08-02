@@ -51,7 +51,6 @@ export default class GesturePickHuman extends GesturePickCore {
 		this.handleStageEnd();
 	};
 
-
 	/**
 	 * Bind event listeners
 	 * bind event to possible gesture picks

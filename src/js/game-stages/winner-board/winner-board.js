@@ -133,11 +133,7 @@ export default class WinnerBoard {
 	 * @returns {*}
 	 */
 	getPairWinner(player1, player2) {
-		let gestures = {
-			paper: ['rock'],
-			rock: ['scissors'],
-			scissors: ['paper']
-		};
+		let gestures = Store.getState('gameMode').gestures;
 
 		if (player1.pickedGestureType === player2.pickedGestureType) {
 			return null;

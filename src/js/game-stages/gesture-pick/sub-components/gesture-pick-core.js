@@ -25,7 +25,6 @@ export default class GesturePickCore {
 		return this.deferedStageRun.promise;
 	}
 
-
 	/**
 	 * Handle stage start
 	 * - show adequate screen
@@ -63,11 +62,14 @@ export default class GesturePickCore {
 	 * @param template
 	 * @param data
 	 */
-	render(template, data = {}) {
+	render(template, playerData = {}) {
 		// merge data with original player data
-		data = Object.assign(this.player, data);
+		playerData = Object.assign(this.player, playerData);
 		clearAllNodes(this.content);
-		let html = stringToHtmlNode(template(data));
+		let html = stringToHtmlNode(template({
+			player: playerData,
+			gestures: Object.keys(Store.getState('gameMode').gestures)
+		}));
 		this.content.appendChild(html);
 	}
 }

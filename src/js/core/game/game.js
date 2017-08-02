@@ -1,9 +1,9 @@
 import Store from 'core/store/store';
 
-import StageGameSelect from 'stages/game-select/game-select';
-import StageGesturePick from 'stages/gesture-pick/gesture-pick';
-import StageGesturesReveal from 'stages/gestures-reveal/gestures-reveal';
-import StageWinnerBoard from 'stages/winner-board/winner-board';
+import StageGameSelect from 'game-stages/game-select/game-select';
+import StageGesturePick from 'game-stages/gesture-pick/gesture-pick';
+import StageGesturesReveal from 'game-stages/gestures-reveal/gestures-reveal';
+import StageWinnerBoard from 'game-stages/winner-board/winner-board';
 
 /**
  * Game
@@ -15,6 +15,14 @@ import StageWinnerBoard from 'stages/winner-board/winner-board';
  */
 export default class Game {
 
+	/**
+	 * Start game
+	 * - every stage has 'run' method
+	 * - run method returns promise, when resolved, game will go to next stage
+	 * - every stage is a standalone component, memory is shared by Store
+	 * - easy to add new stages
+	 * @return {Promise.<void>}
+	 */
 	async start() {
 
 		// stage 1 - game select

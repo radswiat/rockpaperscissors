@@ -1,4 +1,25 @@
 export default {
+	'player-computer-wolf': {
+		players: [
+			{
+				id: 0,
+				type: 'human',
+				name: 'Player 1'
+			},
+			{
+				id: 1,
+				type: 'computer',
+				name: 'Computer 1',
+				difficulty: 0
+			}
+		],
+		gestures: {
+			paper: ['rock'],
+			rock: ['scissors'],
+			scissors: ['paper', 'wolf'],
+			wolf: ['paper', 'rock']
+		}
+	},
 	'player-computer-easy': {
 		players: [
 			{
@@ -12,7 +33,12 @@ export default {
 				name: 'Computer 1',
 				difficulty: 0
 			}
-		]
+		],
+		gestures: {
+			paper: ['rock'],
+			rock: ['scissors'],
+			scissors: ['paper']
+		}
 	},
 	'player-computer-medium': {
 		players: [
@@ -27,7 +53,12 @@ export default {
 				name: 'Computer 1',
 				difficulty: 1
 			}
-		]
+		],
+		gestures: {
+			paper: ['rock'],
+			rock: ['scissors'],
+			scissors: ['paper']
+		}
 	},
 	'player-computer-hard': {
 		players: [
@@ -42,7 +73,12 @@ export default {
 				name: 'Computer 1',
 				difficulty: 2
 			}
-		]
+		],
+		gestures: {
+			paper: ['rock'],
+			rock: ['scissors'],
+			scissors: ['paper']
+		}
 	},
 	'player-player': {
 		players: [
@@ -57,7 +93,12 @@ export default {
 				name: 'Player 2',
 				difficulty: 1
 			}
-		]
+		],
+		gestures: {
+			paper: ['rock'],
+			rock: ['scissors'],
+			scissors: ['paper']
+		}
 	},
 	'computer-computer': {
 		players: [
@@ -73,7 +114,12 @@ export default {
 				name: 'Computer 2',
 				difficulty: 2
 			}
-		]
+		],
+		gestures: {
+			paper: ['rock'],
+			rock: ['scissors'],
+			scissors: ['paper']
+		}
 	},
 	'player-1-computer-10': {
 		players: [
@@ -110,7 +156,7 @@ export default {
 				id: 5,
 				type: 'computer',
 				name: 'Computer 5',
-				difficulty: 1
+				difficulty: 2
 			},
 			{
 				id: 6,
@@ -142,6 +188,11 @@ export default {
 				name: 'Computer 10',
 				difficulty: 1
 			}
-		]
+		],
+		gestures: {
+			paper: ['rock'],
+			rock: ['scissors'],
+			scissors: ['paper']
+		}
 	}
 };
