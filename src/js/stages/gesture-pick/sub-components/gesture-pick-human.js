@@ -1,4 +1,4 @@
-import GesturePick from './gesture-pick';
+import GesturePick from './gesture-pick-core';
 import { stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
 import Store from 'core/store/store';
 

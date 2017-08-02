@@ -1,48 +1,31 @@
-import { Defer } from 'core/utils/utils';
-import renderer from 'core/renderer/renderer';
+import GesturePickHuman from './sub-components/gesture-pick-human';
+import GesturePickComputer from './sub-components/gesture-pick-computer';
 
-export default class GesturePick {
-
-	screenId = 'gesturePick';
-
+/**
+ * Gesture pick interface
+ * - this class is a interface between different types of gesture-picks
+ * - decide what gesture-pick to run based on player
+ * Class pattern is used to be consistent with other stages
+ * @class
+ */
+export default class GesturePickInterface {
 	constructor(player) {
 		this.player = player;
 	}
 
 	/**
 	 * Run stage
+	 * - decide which class should be used
+	 * - create new instance
+	 * - run and return
 	 * @returns {Promise.<Defer|*>}
 	 */
-	async run() {
-		// create stage run promise
-		this.deferedStageRun = new Defer();
-
-		this.handleStageStart();
-
-		return this.deferedStageRun.promise;
+	run() {
+		if (this.player.type === 'human') {
+			let gesturePickHuman = new GesturePickHuman(this.player);
+			return gesturePickHuman.run();
+		}
+		let gesturePickComputer = new GesturePickComputer(this.player);
+		return gesturePickComputer.run();
 	}
-
-
-	/**
-	 * Handle stage start
-	 */
-	handleStageStart() {
-		// clear renderer view
-		renderer.clear();
-
-		// show new screen
-		renderer.showScreen(this.screenId);
-
-		// get screen content
-		this.content = document.getElementById('screen--game-pick-gesture');
-	}
-
-	/**
-	 * Handle stage end
-	 */
-	handleStageEnd() {
-		renderer.clear();
-		this.deferedStageRun.resolve();
-	}
-
 }

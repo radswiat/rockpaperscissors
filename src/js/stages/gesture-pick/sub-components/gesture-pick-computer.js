@@ -1,6 +1,6 @@
 import { stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
 import Store from 'core/store/store';
-import GesturePick from './gesture-pick';
+import GesturePick from './gesture-pick-core';
 
 // import AI components
 import SimpleAI from 'components/AI/simple-ai';

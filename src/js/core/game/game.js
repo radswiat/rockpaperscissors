@@ -1,6 +1,7 @@
 // import StageGameSelect from 'stages/game-select/game-select';
-import StageGesturePickHuman from 'stages/gesture-pick/gesture-pick-human';
-import StageGesturePickComputer from 'stages/gesture-pick/gesture-pick-computer';
+// import StageGesturePickHuman from 'stages/gesture-pick/gesture-pick-human';
+// import StageGesturePickComputer from 'stages/gesture-pick/gesture-pick-computer';
+import StageGesturePick from '../../stages/gesture-pick/gesture-pick';
 import StageWinnerBoard from 'stages/winner-board/winner-board';
 
 export default class Game {
@@ -13,13 +14,8 @@ export default class Game {
 	async start() {
 		// stage 1 - gesture pick
 		for (let player of this.gameConfig.players) {
-			if (player.type === 'human') {
-				let stageGesturePick = new StageGesturePickHuman(player);
-				await stageGesturePick.run();
-			} else if (player.type === 'computer') {
-				let stageGesturePick = new StageGesturePickComputer(player);
-				await stageGesturePick.run();
-			}
+			let stageGesturePick = new StageGesturePick(player);
+			await stageGesturePick.run();
 		}
 
 		// stage 2
