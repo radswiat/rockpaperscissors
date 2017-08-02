@@ -85,7 +85,8 @@ export default class GameSelectStage {
 			throw new Error('game config does not exists!');
 		}
 		Store.setState({
-			gameMode: configGameModes[gameModeType]
+			gameMode: configGameModes[gameModeType],
+			players: {}
 		});
 		this.handleStageEnd();
 	}
