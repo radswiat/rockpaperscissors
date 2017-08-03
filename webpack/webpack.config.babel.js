@@ -28,17 +28,6 @@ module.exports = {
 		filename: '[name].js',
 		sourceMapFilename: '[file].map'
 	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: 'src/index.ejs'
-		}),
-		new ExtractTextPlugin({
-			filename: '[name].css'
-		}),
-		new webpack.LoaderOptionsPlugin({
-			debug: true
-		})
-	],
 	module: {
 		rules: [
 			{
@@ -74,10 +63,7 @@ module.exports = {
 			{
 				test: /\.(html)$/,
 				use: {
-					loader: 'html-loader',
-					options: {
-						attrs: [':data-src']
-					}
+					loader: 'html-loader'
 				}
 			},
 			{
@@ -85,5 +71,16 @@ module.exports = {
 				loader: 'ejs-compiled-loader'
 			}
 		]
-	}
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: 'src/index.html'
+		}),
+		new ExtractTextPlugin({
+			filename: '[name].css'
+		}),
+		new webpack.LoaderOptionsPlugin({
+			debug: true
+		})
+	]
 };

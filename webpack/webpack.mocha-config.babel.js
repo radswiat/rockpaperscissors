@@ -45,8 +45,6 @@ module.exports = {
 		]
 	},
 	plugins: [
-		// we don't want to see any warnings during the tests
-		// this will just hide react warnings, not errors
 		new webpack.DefinePlugin({
 			ENV_MOCHA: true
 		}),
