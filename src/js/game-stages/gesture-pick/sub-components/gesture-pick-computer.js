@@ -17,56 +17,56 @@ import template from './gesture-pick-computer.ejs';
  */
 export default class GesturePickComputer extends GesturePickCore {
 
-	/**
-	 * Run
-	 * @public
-	 * @override run
-	 * @returns {Promise.<Defer|*>}
-	 */
-	run() {
-		return super.run();
-	}
+  /**
+   * Run
+   * @public
+   * @override run
+   * @returns {Promise.<Defer|*>}
+   */
+  run() {
+    return super.run();
+  }
 
-	/**
-	 * Handle stage start
-	 * @private
-	 * @override handleStageStart
-	 */
-	handleStageStart() {
-		super.handleStageStart();
-		this.render();
-		this.handleGesturePick();
-	}
+  /**
+   * Handle stage start
+   * @private
+   * @override handleStageStart
+   */
+  handleStageStart() {
+    super.handleStageStart();
+    this.render();
+    this.handleGesturePick();
+  }
 
-	/**
-	 * Handle stage start
-	 * @private
-	 * @override handleStageEnd
-	 */
-	handleStageEnd() {
-		super.handleStageEnd();
-	}
+  /**
+   * Handle stage start
+   * @private
+   * @override handleStageEnd
+   */
+  handleStageEnd() {
+    super.handleStageEnd();
+  }
 
-	/**
-	 * Handle gesture pick
-	 * - choose AI to be used ( depends on difficulty setting )
-	 * - async as to be future proof
-	 */
-	async handleGesturePick() {
-		// TODO: this can be done better, no error catching etc
-		let AIClass = [SimpleAI, MediumAI, HardAI][this.player.difficulty];
-		let simpleAi = new AIClass();
-		let gestureType = await simpleAi.pickGesture();
-		this.player.pickedGestureType = gestureType;
-		this.handleStageEnd();
-	}
+  /**
+   * Handle gesture pick
+   * - choose AI to be used ( depends on difficulty setting )
+   * - async as to be future proof
+   */
+  async handleGesturePick() {
+    // TODO: this can be done better, no error catching etc
+    let AIClass = [SimpleAI, MediumAI, HardAI][this.player.difficulty];
+    let simpleAi = new AIClass();
+    let gestureType = await simpleAi.pickGesture();
+    this.player.pickedGestureType = gestureType;
+    this.handleStageEnd();
+  }
 
-	/**
-	 * Render html
-	 * @override render
-	 */
-	render() {
-		super.render(template);
-	}
+  /**
+   * Render html
+   * @override render
+   */
+  render() {
+    super.render(template);
+  }
 
 }

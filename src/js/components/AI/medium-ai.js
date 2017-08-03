@@ -7,22 +7,22 @@ import Store from 'core/store/store';
  */
 export default class SimpleAI {
 
-	/**
-	 * Pick gesture
-	 * @return {Promise}
-	 */
-	async pickGesture(timeout = 200) {
+  /**
+   * Pick gesture
+   * @return {Promise}
+   */
+  async pickGesture(timeout = 200) {
 
-		let gestures = Store.getState('gameMode').gestures;
+    let gestures = Store.getState('gameMode').gestures;
 
-		let rnd = getUniformRandomNumber(-1, Object.keys(gestures).length);
+    let rnd = getUniformRandomNumber(-1, Object.keys(gestures).length);
 
-		// return promise to support future, more complex calculations or api calls
-		return new Promise((resolve) => {
-			// use timeout to simulate AI thinking time :)
-			setTimeout(() => {
-				resolve(Object.keys(gestures)[rnd]);
-			}, timeout);
-		});
-	}
+    // return promise to support future, more complex calculations or api calls
+    return new Promise((resolve) => {
+      // use timeout to simulate AI thinking time :)
+      setTimeout(() => {
+        resolve(Object.keys(gestures)[rnd]);
+      }, timeout);
+    });
+  }
 }

@@ -1,14 +1,7 @@
 @import './vars.scss';
+@import './base';
 @import './components/button.scss';
 @import './components/list.scss';
 @import './components/layouts.scss';
 @import './components/sections.scss';
 
-body {
-  padding: 0;
-  margin: 0;
-}
-
-.body--dark {
-  background-color: #bfbfbf;
-}

@@ -1,0 +1,9 @@
+body {
+  padding: 0;
+  margin: 0;
+
+  &--dark {
+    background-color: $background-dark;
+  }
+
+}

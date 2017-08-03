@@ -22,7 +22,6 @@
 	"no-console": 0,
 	"no-tabs": 0,
 	"padded-blocks": 0,
-	"indent": ["error", "tab"],
 	"class-methods-use-this": 0,
 	"no-underscore-dangle": 0,
 	"no-shadow": 0,
