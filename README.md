@@ -1,5 +1,6 @@
 # Rock Paper Scissors Game
 
+Check branch `feature/socket-multiplayer-game` for a multiplayer game mode ( socket.io )
 
 ## Features
 * Unlimited number of players
