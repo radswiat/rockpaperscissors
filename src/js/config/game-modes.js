@@ -194,5 +194,29 @@ export default {
 			rock: ['scissors'],
 			scissors: ['paper']
 		}
+	},
+	basic: {
+		gameMode: {
+			players: [
+				{
+					id: 0,
+					type: 'computer',
+					name: 'Computer 1',
+					difficulty: 2
+				},
+				{
+					id: 1,
+					type: 'computer',
+					name: 'Computer 2',
+					difficulty: 0
+				}
+			],
+			gestures: {
+				paper: ['rock'],
+				rock: ['scissors'],
+				scissors: ['paper', 'wolf'],
+				wolf: ['paper', 'rock']
+			}
+		}
 	}
 };

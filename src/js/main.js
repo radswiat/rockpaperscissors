@@ -20,11 +20,17 @@ export default class GameUiInterface {
 
 	bindEvents() {
 		document.getElementById('start-game').addEventListener('click', this.handleGameStart);
+		document.getElementById('start-game-simple').addEventListener('click', this.handleSimpleGameStart);
 	}
 
 	handleGameStart = () => {
 		let game = new Game();
 		game.start();
+	};
+
+	handleSimpleGameStart = () => {
+		let simpleGame = new Game();
+		simpleGame.startSimple();
 	};
 
 }

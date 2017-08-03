@@ -2,7 +2,7 @@ import { Defer, isDefined } from 'core/utils/utils';
 import view from 'core/view/view';
 import { stringToHtmlNode, clearAllNodes } from 'core/utils/utils';
 import Store from 'core/store/store';
-import configGameModes from './config-game-modes';
+import configGameModes from 'config/game-modes';
 
 import template from './game-select.ejs';
 

@@ -5,6 +5,8 @@ import StageGesturePick from 'game-stages/gesture-pick/gesture-pick';
 import StageGesturesReveal from 'game-stages/gestures-reveal/gestures-reveal';
 import StageWinnerBoard from 'game-stages/winner-board/winner-board';
 
+import gameModes from 'config/game-modes';
+
 /**
  * Game
  * - game is split into separate stages
@@ -47,6 +49,31 @@ export default class Game {
 
 		// reset game when finished
 		this.start();
+	}
+
+	/**
+	 * Basic game mode
+	 * - to show how easy is to change stages of the game
+	 * - stages can work separately, they are just using Store as a only data point
+	 * @return {Promise.<void>}
+	 */
+	async startSimple() {
+
+		Store.clear();
+		Store.setState(gameModes.basic);
+
+		// stage 2 - gesture pick
+		for (let player of Store.getState('gameMode').players) {
+			let stageGesturePick = new StageGesturePick(player);
+			await stageGesturePick.run();
+		}
+
+		// stage 4 - winner-board
+		let stageWinnerBoard = new StageWinnerBoard();
+		await stageWinnerBoard.run();
+
+		// reset game when finished
+		this.startSimple();
 	}
 
 }
