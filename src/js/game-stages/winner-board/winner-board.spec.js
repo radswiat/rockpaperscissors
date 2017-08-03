@@ -1,12 +1,26 @@
-/* global it, describe */
+/* global it, describe, before */
 import { expect } from 'chai';
 import sinon from 'sinon';
 import WinnerBoardStage from './winner-board';
+import Store from '../../core/store/store';
 
 describe('js/stages/winner-board/winner-board.js', () => {
 
 	let winnerBoardStage = new WinnerBoardStage();
 	let handleStageStartSpy = sinon.stub(winnerBoardStage, 'handleStageStart');
+
+	before(() => {
+		Store.clear();
+		Store.setState({
+			gameMode: {
+				gestures: {
+					paper: ['rock'],
+					rock: ['scissors'],
+					scissors: ['paper', 'wolf']
+				}
+			}
+		});
+	});
 
 	it('should have screenHtmlId property', () => {
 		expect(winnerBoardStage.screenHtmlId).to.not.be.undefined;

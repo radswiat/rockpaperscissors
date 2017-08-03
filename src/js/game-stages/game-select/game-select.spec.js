@@ -27,7 +27,7 @@ describe('js/stages/game-select/game-select.js', () => {
 		attr.value = 'player-computer-easy';
 		el.setAttributeNode(attr);
 		gameSelectStage.handleGameModeSelected({
-			target: el
+			currentTarget: el
 		});
 		expect(Store.getState('gameMode')).to.not.be.undefined;
 	});
@@ -39,7 +39,7 @@ describe('js/stages/game-select/game-select.js', () => {
 		el.setAttributeNode(attr);
 		expect(() => {
 			gameSelectStage.handleGameModeSelected({
-				target: el
+				currentTarget: el
 			});
 		}).to.throw('game config does not exists!');
 	});

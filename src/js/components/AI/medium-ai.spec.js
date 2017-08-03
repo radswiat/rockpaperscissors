@@ -27,6 +27,6 @@ describe('js/components/AI/medium-ai.js', () => {
 
 	it('should return promise on run method', async () => {
 		let pick = await ai.pickGesture(0);
-		expect(pick).to.be.oneOf(['wofl', 'paper', 'rock', 'scissors']);
+		expect(pick).to.be.oneOf(['wolf', 'paper', 'rock', 'scissors']);
 	});
 });

@@ -27,7 +27,7 @@ describe('js/components/AI/simple-ai.js', () => {
 
 	it('should return promise on run method', async () => {
 		let pick = await ai.pickGesture(0);
-		expect(pick).to.be.oneOf(['paper', 'rock', 'scissors']);
+		expect(pick).to.be.oneOf(['wofl', 'paper', 'rock', 'scissors']);
 	}).timeout(1000);
 
 	it('should return a falling probability', async () => {
