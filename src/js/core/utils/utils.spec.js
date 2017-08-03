@@ -40,7 +40,7 @@ describe('js/core/utils/utils.js', () => {
         2: 0
       };
       for (let i = 35000; i; i--) {
-        let w = getUniformRandomNumber(-1, 3)
+        let w = getUniformRandomNumber(-1, 3);
         stats[w]++;
       }
       expect(stats[0]).to.be.least(10000);

@@ -1,4 +1,23 @@
 export default {
+  'player-socket': {
+    players: [
+      {
+        id: 0,
+        type: 'human',
+        name: 'Player 1'
+      },
+      {
+        id: 1,
+        type: 'socket',
+        name: 'Socket 1'
+      }
+    ],
+    gestures: {
+      paper: ['rock'],
+      rock: ['scissors'],
+      scissors: ['paper']
+    }
+  },
   'player-computer-wolf': {
     players: [
       {

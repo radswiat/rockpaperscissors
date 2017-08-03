@@ -1,5 +1,6 @@
 import GesturePickHuman from './sub-components/gesture-pick-human';
 import GesturePickComputer from './sub-components/gesture-pick-computer';
+import GesturePickSocket from './sub-components/gesture-pick-socket';
 
 /**
  * Gesture pick interface
@@ -9,6 +10,7 @@ import GesturePickComputer from './sub-components/gesture-pick-computer';
  * @class
  */
 export default class GesturePickInterface {
+
   constructor(player) {
     this.player = player;
   }
@@ -25,6 +27,12 @@ export default class GesturePickInterface {
       let gesturePickHuman = new GesturePickHuman(this.player);
       return gesturePickHuman.run();
     }
+
+    if (this.player.type === 'socket') {
+      let gesturePickSocket = new GesturePickSocket(this.player);
+      return gesturePickSocket.run();
+    }
+
     let gesturePickComputer = new GesturePickComputer(this.player);
     return gesturePickComputer.run();
   }

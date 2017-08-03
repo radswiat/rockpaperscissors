@@ -1,7 +1,11 @@
 # Rock Paper Scissors Game
 
 
+`This is modified version of the game with a prototype of multipler game`
+
+
 ## Features
+* Multiplayer game using sockets.io
 * Unlimited number of players
 * Eliminations mode for more then 2 players game
 * Three difficulty levels for computer players

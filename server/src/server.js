@@ -6,6 +6,8 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../../webpack/webpack.config.babel';
 
+import Sockets from './sockets';
+
 /**
  * The server.
  *
@@ -14,47 +16,48 @@ import webpackConfig from '../../webpack/webpack.config.babel';
 export default class Server {
 
 
-	/**
-	 * Bootstrap the server
-	 */
-	static bootstrap() {
-		return new Server();
-	}
+  /**
+   * Bootstrap the server
+   */
+  static bootstrap() {
+    return new Server();
+  }
 
-	/**
-	 * Constructor.
-	 * @constructor
-	 */
-	constructor() {
-		this.startup();
-	}
+  /**
+   * Constructor.
+   * @constructor
+   */
+  constructor() {
+    this.startup();
+  }
 
-	async startup() {
-		this.app = express();
-		this.server = http.Server(this.app);
-		this.setWebpackCompiler();
-		this.setPortListener();
-	}
+  async startup() {
+    this.app = express();
+    this.server = http.Server(this.app);
+    this.sockets = new Sockets(this.server);
+    this.setWebpackCompiler();
+    this.setPortListener();
+  }
 
-	setWebpackCompiler() {
-		let compiler = webpack(webpackConfig);
-		this.app.use(webpackDevMiddleware(compiler, {
-			noInfo: false,
-			quiet: false,
-			publicPath: webpackConfig.output.publicPath,
-			hot: true,
-			stats: {
-				colors: true
-			}
-		}));
-		this.app.use(webpackHotMiddleware(compiler));
-	}
+  setWebpackCompiler() {
+    let compiler = webpack(webpackConfig);
+    this.app.use(webpackDevMiddleware(compiler, {
+      noInfo: false,
+      quiet: false,
+      publicPath: webpackConfig.output.publicPath,
+      hot: true,
+      stats: {
+        colors: true
+      }
+    }));
+    this.app.use(webpackHotMiddleware(compiler));
+  }
 
-	setPortListener() {
-		this.server.listen(3333, () => {
-			console.log('server ready');
-		});
-	}
+  setPortListener() {
+    this.server.listen(3333, () => {
+      console.log('server ready at: localhost:3333');
+    });
+  }
 
 }
 

@@ -1,4 +1,5 @@
 import GesturePickCore from './gesture-pick-core';
+import Sockets from 'core/sockets/sockets';
 
 import template from './gesture-pick-human.ejs';
 
@@ -48,6 +49,7 @@ export default class GesturePickHuman extends GesturePickCore {
   handleGesturePick = (event) => {
     let gestureType = event.target.getAttribute('type');
     this.player.pickedGestureType = gestureType;
+    Sockets.emit('select:gesture', gestureType);
     this.handleStageEnd();
   };
 

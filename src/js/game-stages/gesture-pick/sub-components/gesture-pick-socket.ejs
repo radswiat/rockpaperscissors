@@ -1,0 +1,32 @@
+<div class="layout layout--padding layout--center">
+  <div class="section">
+    <h1 class="section__header"><%= player.name %>: Computer gesture</h1>
+    <h1 class="section__subheader">Stage 2 - wait for online player pick</h1>
+  </div>
+  <div class="section section--dark section--border-top">
+    <ul class="list">
+      <% for(var i = gestures.length - 1; i >= 0; i--) { %>
+      <li class="list__element">
+        <div class="button button--disabled"><%= gestures[i] %></div>
+      </li>
+      <% } %>
+    </ul>
+    <div>
+      <h3>What to do now ?</h3>
+      <ul class="list">
+        <li>
+          1. Go to <strong>localhost:3333</strong> in new tab or browser
+        </li>
+        <li>
+          2. Normal game > Multiplayer game
+        </li>
+        <li>
+          3. Pick your gesture
+        </li>
+        <li>
+          4. Go back to this game
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

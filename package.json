@@ -10,7 +10,7 @@
     "url": "git@github.com:gumtreeuk/rockpaperscissors.git"
   },
   "scripts": {
-    "start": "babel-node ./server/src/server.js",
+    "start": "nodemon --watch ./server/ --exec babel-node ./server/src/server.js",
     "test": "mocha-webpack  --require test-utils/dom.js --webpack-config webpack/webpack.mocha-config.babel.js \"src/**/*.spec.js\"",
     "test:watch": "mocha-webpack --require test-utils/dom.js --webpack-config webpack/webpack.mocha-config.babel.js \"src/**/*.spec.js\" --watch",
     "dev": "webpack-dev-server --config ./webpack/webpack.config.babel.js --content-base build/",
@@ -59,6 +59,8 @@
     "babel-polyfill": "^6.23.0",
     "ejs": "^2.5.7",
     "express": "^4.15.3",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3",
     "webpack-hot-middleware": "^2.18.2"
   }
 }
