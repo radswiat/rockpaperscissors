@@ -29,8 +29,7 @@ export default class SimpleAI {
 
 		// return promise to support future, more complex calculations or api calls
 		return new Promise((resolve) => {
-
-			// return without timeout - usefull in unit tests
+			// return without timeout - useful in unit tests
 			if (!timeout) {
 				resolve(Object.keys(gestures)[rnd]);
 				return;
