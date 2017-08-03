@@ -1,4 +1,5 @@
 import { getUniformRandomNumber } from 'core/utils/utils';
+import Store from 'core/store/store';
 
 /**
  * Medium AI
@@ -10,14 +11,18 @@ export default class SimpleAI {
 	 * Pick gesture
 	 * @return {Promise}
 	 */
-	async pickGesture() {
+	async pickGesture(timeout = 200) {
+
+		let gestures = Store.getState('gameMode').gestures;
+
+		let rnd = getUniformRandomNumber(-1, Object.keys(gestures).length);
+
 		// return promise to support future, more complex calculations or api calls
 		return new Promise((resolve) => {
 			// use timeout to simulate AI thinking time :)
 			setTimeout(() => {
-				let random = getUniformRandomNumber(-1, 3);
-				resolve(['paper', 'scissors', 'rock'][random]);
-			}, 200);
+				resolve(Object.keys(gestures)[rnd]);
+			}, timeout);
 		});
 	}
 }
