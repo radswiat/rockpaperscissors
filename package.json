@@ -10,7 +10,7 @@
     "url": "git@github.com:gumtreeuk/rockpaperscissors.git"
   },
   "scripts": {
-    "start": "nodemon --delay 500ms --watch ./webpack --exec webpack-dev-server -- --config ./webpack/webpack.config.babel.js --content-base build/",
+    "start": "babel-node ./server/src/server.js",
     "test": "mocha-webpack  --require test-utils/dom.js --webpack-config webpack/webpack.mocha-config.babel.js \"src/**/*.spec.js\"",
     "test:watch": "mocha-webpack --require test-utils/dom.js --webpack-config webpack/webpack.mocha-config.babel.js \"src/**/*.spec.js\" --watch",
     "dev": "webpack-dev-server --config ./webpack/webpack.config.babel.js --content-base build/",
@@ -19,7 +19,6 @@
     "lint": "eslint . --ext .js"
   },
   "devDependencies": {
-    "babel": "^6.23.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.2.3",
@@ -58,6 +57,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "ejs": "^2.5.7"
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "webpack-hot-middleware": "^2.18.2"
   }
 }
