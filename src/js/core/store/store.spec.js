@@ -1,8 +1,12 @@
-/* global it, describe */
+/* global it, describe, before */
 import { expect, assert } from 'chai';
 import Store from './store';
 
 describe('js/core/store/store.js', () => {
+
+	before(() => {
+		Store.clear();
+	});
 
 	it('should set test state', () => {
 		Store.setState({

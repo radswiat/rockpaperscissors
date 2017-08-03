@@ -30,3 +30,16 @@ export function isDefined(val) {
 export function getUniformRandomNumber(max, min) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export function getFallingRandomNumber(max, mod) {
+	let rndNumber = null;
+	for (let i = 0; i < max; i++) {
+		if (getUniformRandomNumber(i - 1, max + (i * mod)) === i) {
+			rndNumber = i;
+		}
+	}
+	if (rndNumber === null) {
+		rndNumber = getFallingRandomNumber(max, mod);
+	}
+	return rndNumber;
+}
