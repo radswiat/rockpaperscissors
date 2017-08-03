@@ -18,7 +18,10 @@ module.exports = {
 		extensions: ['.js']
 	},
 	entry: {
-		main: './src/js/main.js'
+		main: [
+			'babel-polyfill',
+			'./src/js/main.js'
+		]
 	},
 	output: {
 		path: path.join(process.cwd(), 'build'),
