@@ -79,7 +79,7 @@ export default class GameSelectStage {
 	}
 
 	handleGameModeSelected = (event) => {
-		let gameModeType = event.target.getAttribute('type');
+		let gameModeType = event.currentTarget.getAttribute('type');
 		// check if config exists
 		if (!isDefined(configGameModes[gameModeType])) {
 			throw new Error('game config does not exists!');
