@@ -1,24 +1,23 @@
 <div class="layout layout--padding layout--center">
-	<div class="section">
-		<h1 class="section__header">Winner</h1>
-		<h1 class="section__subheader">Stage 4 - who won ?</h1>
-	</div>
-	<div class="section section--dark section--border-top">
-		<ul class="list">
-			<%if (winner !== null) { %>
-				<li class="list__element">
-					<span class="button__label"><%=winner.name %></span>
-					<span class="button__sub"><%=winner.pickedGestureType %></span>
-				</li>
-			<% } else { %>
-				<li class="list__element">
-					Draw :(
-				</li>
-			<% } %>
-		</ul>
-
-	</div>
-	<div class="button button--primary">
-		Reset
-	</div>
+  <div class="section">
+    <h1 class="section__header">Winner</h1>
+    <h1 class="section__subheader">Stage 4 - who won ?</h1>
+  </div>
+  <div class="section section--dark section--border-top">
+    <ul class="list">
+      <% if (winner !== null) { %>
+        <li class="list__element">
+          <span class="button__label"><%= winner.name %></span>
+          <span class="button__sub"><%= winner.pickedGestureType %></span>
+        </li>
+      <% } else { %>
+        <li class="list__element">
+          Draw :(
+        </li>
+      <% } %>
+    </ul>
+  </div>
+  <div class="button button--primary">
+    Reset
+  </div>
 </div>

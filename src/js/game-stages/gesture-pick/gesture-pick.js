@@ -9,23 +9,23 @@ import GesturePickComputer from './sub-components/gesture-pick-computer';
  * @class
  */
 export default class GesturePickInterface {
-	constructor(player) {
-		this.player = player;
-	}
+  constructor(player) {
+    this.player = player;
+  }
 
-	/**
-	 * Run stage
-	 * - decide which class should be used
-	 * - create new instance
-	 * - run and return
-	 * @returns {Promise.<Defer|*>}
-	 */
-	run() {
-		if (this.player.type === 'human') {
-			let gesturePickHuman = new GesturePickHuman(this.player);
-			return gesturePickHuman.run();
-		}
-		let gesturePickComputer = new GesturePickComputer(this.player);
-		return gesturePickComputer.run();
-	}
+  /**
+   * Run stage
+   * - decide which class should be used
+   * - create new instance
+   * - run and return
+   * @returns {Promise.<Defer|*>}
+   */
+  run() {
+    if (this.player.type === 'human') {
+      let gesturePickHuman = new GesturePickHuman(this.player);
+      return gesturePickHuman.run();
+    }
+    let gesturePickComputer = new GesturePickComputer(this.player);
+    return gesturePickComputer.run();
+  }
 }

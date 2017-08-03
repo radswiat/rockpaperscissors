@@ -13,160 +13,160 @@ import template from './winner-board.ejs';
  */
 export default class WinnerBoard {
 
-	screenHtmlId = 'screen--game-winner-board';
+  screenHtmlId = 'screen--game-winner-board';
 
-	async run() {
-		// create stage run promise
-		this.deferedStageRun = new Defer();
+  async run() {
+    // create stage run promise
+    this.deferedStageRun = new Defer();
 
-		this.handleStageStart();
+    this.handleStageStart();
 
-		return this.deferedStageRun.promise;
-	}
+    return this.deferedStageRun.promise;
+  }
 
-	/**
-	 * Handle stage start
-	 * - show adequate screen
-	 * - display winner
-	 */
-	handleStageStart() {
-		// clear renderer view
-		view.clear();
+  /**
+   * Handle stage start
+   * - show adequate screen
+   * - display winner
+   */
+  handleStageStart() {
+    // clear renderer view
+    view.clear();
 
-		// show new screen
-		view.show(this.screenHtmlId);
+    // show new screen
+    view.show(this.screenHtmlId);
 
-		// get screen content
-		this.content = view.getContent(this.screenHtmlId);
+    // get screen content
+    this.content = view.getContent(this.screenHtmlId);
 
-		this.displayWinner();
-	}
+    this.displayWinner();
+  }
 
-	/**
-	 * Handle stage end
-	 * - clear view
-	 * - resolve stage
-	 */
-	handleStageEnd() {
-		view.clear();
-		this.deferedStageRun.resolve();
-	}
+  /**
+   * Handle stage end
+   * - clear view
+   * - resolve stage
+   */
+  handleStageEnd() {
+    view.clear();
+    this.deferedStageRun.resolve();
+  }
 
-	/**
-	 * Display winner
-	 * - get all players from store
-	 * - convert players object to array ( simplifies iterations )
-	 * - get winner
-	 * - call render
-	 */
-	displayWinner() {
-		let players = Store.getState('players');
+  /**
+   * Display winner
+   * - get all players from store
+   * - convert players object to array ( simplifies iterations )
+   * - get winner
+   * - call render
+   */
+  displayWinner() {
+    let players = Store.getState('players');
 
-		// convert playerStates to array
-		let playersArray = Object.keys(players).map((player) => {
-			return players[player];
-		});
+    // convert playerStates to array
+    let playersArray = Object.keys(players).map((player) => {
+      return players[player];
+    });
 
-		let winner = this.getWinner(playersArray);
+    let winner = this.getWinner(playersArray);
 
-		// add stats into store
-		if (winner) {
-			let stats = Store.getState('stats');
-			stats.push(winner.pickedGestureType);
-			Store.setState({
-				stats
-			});
-		}
+    // add stats into store
+    if (winner) {
+      let stats = Store.getState('stats');
+      stats.push(winner.pickedGestureType);
+      Store.setState({
+        stats
+      });
+    }
 
-		this.render(template, {
-			winner
-		});
-	}
+    this.render(template, {
+      winner
+    });
+  }
 
-	/**
-	 * Get winner
-	 * - recursive for all players
-	 * - tournament type of play
-	 * - compare pairs -> winner of each pair plays with winner of other pair
-	 * - draw disqualifies from tournament
-	 * @param players
-	 * @param nextPlayers
-	 * @returns {*}
-	 */
-	getWinner(players, nextPlayers = []) {
-		// if no more pairs to play with each other
-		if (!players.length) {
-			// when we got a final winner
-			if (nextPlayers.length === 1) {
-				return nextPlayers[0];
-			}
-			// if nobody won
-			if (nextPlayers.length === 0) {
-				return null;
-			}
-			// start next stage of the tournament
-			players = nextPlayers;
-			nextPlayers = [];
-		}
+  /**
+   * Get winner
+   * - recursive for all players
+   * - tournament type of play
+   * - compare pairs -> winner of each pair plays with winner of other pair
+   * - draw disqualifies from tournament
+   * @param players
+   * @param nextPlayers
+   * @returns {*}
+   */
+  getWinner(players, nextPlayers = []) {
+    // if no more pairs to play with each other
+    if (!players.length) {
+      // when we got a final winner
+      if (nextPlayers.length === 1) {
+        return nextPlayers[0];
+      }
+      // if nobody won
+      if (nextPlayers.length === 0) {
+        return null;
+      }
+      // start next stage of the tournament
+      players = nextPlayers;
+      nextPlayers = [];
+    }
 
-		// when odd number of players
-		// move last player to next round
-		if ((players.length + 1) % 2 === 0) {
-			nextPlayers.push(players.pop());
-		}
+    // when odd number of players
+    // move last player to next round
+    if ((players.length + 1) % 2 === 0) {
+      nextPlayers.push(players.pop());
+    }
 
-		let first = players.shift();
-		let second = players.shift();
-		let winner = this.getPairWinner(first, second);
-		// disqualify if draw
-		if (winner) {
-			nextPlayers.push(winner);
-		}
-		return this.getWinner(players, nextPlayers);
-	}
+    let first = players.shift();
+    let second = players.shift();
+    let winner = this.getPairWinner(first, second);
+    // disqualify if draw
+    if (winner) {
+      nextPlayers.push(winner);
+    }
+    return this.getWinner(players, nextPlayers);
+  }
 
-	/**
-	 * Get winner of the pair of players
-	 * - player vs player
-	 * @param player1Gesture
-	 * @param player2Gesture
-	 * @returns {*}
-	 */
-	getPairWinner(player1, player2) {
-		let gestures = Store.getState('gameMode').gestures;
+  /**
+   * Get winner of the pair of players
+   * - player vs player
+   * @param player1Gesture
+   * @param player2Gesture
+   * @returns {*}
+   */
+  getPairWinner(player1, player2) {
+    let gestures = Store.getState('gameMode').gestures;
 
-		if (player1.pickedGestureType === player2.pickedGestureType) {
-			return null;
-		}
+    if (player1.pickedGestureType === player2.pickedGestureType) {
+      return null;
+    }
 
-		if (gestures[player1.pickedGestureType].indexOf(player2.pickedGestureType) >= 0) {
-			return player1;
-		}
+    if (gestures[player1.pickedGestureType].indexOf(player2.pickedGestureType) >= 0) {
+      return player1;
+    }
 
-		return player2;
-	}
+    return player2;
+  }
 
-	/**
-	 * Render
-	 * @param template
-	 * @param data
-	 */
-	render(template, data) {
-		let html = stringToHtmlNode(template(data));
-		clearAllNodes(this.content);
-		this.content.appendChild(html);
-		this.bindResetBtnEvent();
-	}
+  /**
+   * Render
+   * @param template
+   * @param data
+   */
+  render(template, data) {
+    let html = stringToHtmlNode(template(data));
+    clearAllNodes(this.content);
+    this.content.appendChild(html);
+    this.bindResetBtnEvent();
+  }
 
-	/**
-	 * Bind reset btn event
-	 * - reset will trigger handleStageEnd
-	 * - stage will close, and game should carry to next step ( or to the end )
-	 */
-	bindResetBtnEvent() {
-		this.content.getElementsByClassName('button')[0].addEventListener('click', () => {
-			this.handleStageEnd();
-		});
-	}
+  /**
+   * Bind reset btn event
+   * - reset will trigger handleStageEnd
+   * - stage will close, and game should carry to next step ( or to the end )
+   */
+  bindResetBtnEvent() {
+    this.content.getElementsByClassName('button')[0].addEventListener('click', () => {
+      this.handleStageEnd();
+    });
+  }
 
 }

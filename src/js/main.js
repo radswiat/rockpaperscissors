@@ -10,28 +10,28 @@ import Game from 'core/game/game';
  */
 export default class GameUiInterface {
 
-	static bootstrap() {
-		new GameUiInterface();
-	}
+  static bootstrap() {
+    new GameUiInterface();
+  }
 
-	constructor() {
-		this.bindEvents();
-	}
+  constructor() {
+    this.bindEvents();
+  }
 
-	bindEvents() {
-		document.getElementById('start-game').addEventListener('click', this.handleGameStart);
-		document.getElementById('start-game-simple').addEventListener('click', this.handleSimpleGameStart);
-	}
+  bindEvents() {
+    document.getElementById('start-game').addEventListener('click', this.handleGameStart);
+    document.getElementById('start-game-simple').addEventListener('click', this.handleSimpleGameStart);
+  }
 
-	handleGameStart = () => {
-		let game = new Game();
-		game.start();
-	};
+  handleGameStart = () => {
+    let game = new Game();
+    game.start();
+  };
 
-	handleSimpleGameStart = () => {
-		let simpleGame = new Game();
-		simpleGame.startSimple();
-	};
+  handleSimpleGameStart = () => {
+    let simpleGame = new Game();
+    simpleGame.startSimple();
+  };
 
 }
 

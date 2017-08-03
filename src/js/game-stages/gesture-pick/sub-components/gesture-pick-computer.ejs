@@ -1,15 +1,15 @@
 <div class="layout layout--padding layout--center">
-	<div class="section">
-		<h1 class="section__header"><%= player.name %>: Computer gesture</h1>
-		<h1 class="section__subheader">Stage 2 - wait for computer to pick</h1>
-	</div>
-	<div class="section section--dark section--border-top">
-		<ul class="list">
-			<% for(var i=gestures.length - 1; i >= 0; i--) {%>
-				<li class="list__element">
-					<div class="button button--disabled"><%=gestures[i] %></div>
-				</li>
-			<% } %>
-		</ul>
-	</div>
+  <div class="section">
+    <h1 class="section__header"><%= player.name %>: Computer gesture</h1>
+    <h1 class="section__subheader">Stage 2 - wait for computer to pick</h1>
+  </div>
+  <div class="section section--dark section--border-top">
+    <ul class="list">
+      <% for(var i = gestures.length - 1; i >= 0; i--) { %>
+        <li class="list__element">
+          <div class="button button--disabled"><%= gestures[i] %></div>
+        </li>
+      <% } %>
+    </ul>
+  </div>
 </div>
