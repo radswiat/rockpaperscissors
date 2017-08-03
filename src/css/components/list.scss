@@ -6,23 +6,23 @@
   display: inline-block;
 
   &__element {
-	min-height: 40px;
-	border: 1px solid $border-gray;
-	border-width: 0px 0px 1px 0px;
-	padding: 6px 12px;
-	display: inline-block;
-	margin: 12px 12px;
+    min-height: 40px;
+    border: 1px solid $border-gray;
+    border-width: 0px 0px 1px 0px;
+    padding: 6px 12px;
+    display: inline-block;
+    margin: 12px 12px;
   }
 
   &__element-title {
-	display: block;
-	font-size: 18px;
-	margin-bottom: 4px;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 4px;
   }
 
   &__element-desc {
-	display: block;
-	color: gray;
-	font-size: 14px;
+    display: block;
+    color: gray;
+    font-size: 14px;
   }
 }

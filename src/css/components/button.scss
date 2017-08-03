@@ -9,38 +9,38 @@
   background: white;
 
   &:hover {
-	background: lighten($border-gray, 10);
+    background: lighten($border-gray, 10);
   }
 
   &__label {
-	display: inline-block;
+    display: inline-block;
   }
 
   &__sub {
-	font-size: 12px;
-	display: block;
-	margin-bottom: 4px;
-	color: $font-light-gray;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 4px;
+    color: $font-light-gray;
   }
 
   &--primary {
-	background: $accent-blue;
-	color: white;
-	&:hover {
-	  background: darken($accent-blue, 8);
-	}
+    background: $accent-blue;
+    color: white;
+    &:hover {
+      background: darken($accent-blue, 8);
+    }
   }
 
   &--block {
-	display: block;
-	margin: 12px;
+    display: block;
+    margin: 12px;
   }
 
   &--disabled {
-	background: $border-gray;
-	cursor: not-allowed;
-	&:hover {
-	  background: $border-gray;
-	}
+    background: $border-gray;
+    cursor: not-allowed;
+    &:hover {
+      background: $border-gray;
+    }
   }
 }
