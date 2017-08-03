@@ -1,9 +1,10 @@
-$border-gray: #d0d0d0;
-$accent-blue: #2196f3;
-
+@import './vars.scss';
 @import './components/button.scss';
 @import './components/form';
 @import './components/options.scss';
+@import './components/list.scss';
+@import './components/layouts.scss';
+@import './components/sections.scss';
 
 body {
   padding: 0;
@@ -12,23 +13,4 @@ body {
 
 .body--dark {
   background-color: #bfbfbf;
-}
-
-.container {
-  max-width: 1024px;
-  margin: 0px auto;
-  padding: 12px 24px;
-}
-
-.container--center {
-
-}
-
-.section {
-  padding: 12px 24px;
-}
-
-.view {
-  margin: 24px;
-  background: white;
 }

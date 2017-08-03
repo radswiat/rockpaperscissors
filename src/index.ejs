@@ -7,40 +7,58 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="body--dark">
-	<div class="container">
-		<div class="view" id="screen--introduction">
+
+	<!-- SCREEN: introduction -->
+	<div class="view" id="screen--introduction">
+		<div class="layout layout--padding layout--center">
 			<div class="section">
-				<h1>Rock Paper Scissors game</h1>
-				<h3>Features</h3>
-				<ul>
-					<li>
-						unlimited number of players
+				<h1 class="section__header">Rock Paper Scissors game</h1>
+				<h1 class="section__subheader">Maintainable and extendable JS version of popular game</h1>
+			</div>
+			<div class="section">
+				<h1 class="section__header">Features</h1>
+				<h1 class="section__subheader">
+					Main goal of the app is extensibility and maintainability
+					following a simple and re-usable architecture
+				</h1>
+				<ul class="list">
+					<li class="list__element">
+						<span class="list__element-title">unlimited number of players</span>
+						<span class="list__element-desc">( limited only by UI as of now )</span>
 					</li>
-					<li>
-						tournament/eliminations mode
+					<li class="list__element">
+						<span class="list__element-title">eliminations mode</span>
+						<span class="list__element-desc">( check "Player vs 10 Computers" game )</span>
 					</li>
-					<li>
-						easiness of adding new stages
+					<li class="list__element">
+						<span class="list__element-title">component based architecture</span>
+						<span class="list__element-desc">( re-usable and standalone code )</span>
 					</li>
-					<li>
-						easiness of adding new gestures ( ex: Lizard )
+					<li class="list__element">
+						<span class="list__element-title">easiness of adding new stages</span>
+						<span class="list__element-desc">( see core/game/game.js )</span>
 					</li>
-					<li>
-						component-based/microservices-based architecture
+					<li class="list__element">
+						<span class="list__element-title">easiness of adding new gestures</span>
+						<span class="list__element-desc">( add in a single place: config/game-modes.js )</span>
 					</li>
 				</ul>
 			</div>
-			<div id="start-game" class="button button--primary">
-				Start game
-			</div>
-			<div id="start-game-simple" class="button button--primary">
-				Start SIMPLE game
+			<div class="section">
+				<div id="start-game" class="button button--primary">
+					Normal game
+				</div>
+				<div id="start-game-simple" class="button">
+					Simple game
+				</div>
 			</div>
 		</div>
-		<div id="screen--game-select" class="view" style="display: none"></div>
-		<div id="screen--game-pick-gesture" class="view" style="display: none"></div>
-		<div id="screen--game-gestures-reveal" class="view" style="display: none"></div>
-		<div id="screen--game-winner-board" class="view" style="display: none"></div>
 	</div>
+	<!-- SCREEN: introduction ends -->
+
+	<div id="screen--game-select" class="view" style="display: none"></div>
+	<div id="screen--game-pick-gesture" class="view" style="display: none"></div>
+	<div id="screen--game-gestures-reveal" class="view" style="display: none"></div>
+	<div id="screen--game-winner-board" class="view" style="display: none"></div>
 </body>
 </html>

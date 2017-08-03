@@ -1,10 +1,15 @@
-<div class="section">
-	<h2><%= player.name %></h2>
-	<p>Choose your move</p>
-	<hr>
-	<div class="options">
-		<% for(var i=gestures.length - 1; i >= 0; i--) {%>
-			<div class="options__option gesture" type="<%=gestures[i] %>"><%=gestures[i] %></div>
-		<% } %>
+<div class="layout layout--padding layout--center">
+	<div class="section">
+		<h1 class="section__header"><%= player.name %>: Select gesture</h1>
+		<h1 class="section__subheader">Stage 2 - select your winning gesture</h1>
+	</div>
+	<div class="section section--dark section--border-top">
+		<ul class="list">
+			<% for(var i=gestures.length - 1; i >= 0; i--) {%>
+				<li class="list__element">
+					<div class="button gesture" type="<%=gestures[i] %>"><%=gestures[i] %></div>
+				</li>
+			<% } %>
+		</ul>
 	</div>
 </div>

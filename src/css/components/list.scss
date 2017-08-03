@@ -1,0 +1,28 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin-top: 36px;
+  max-width: 1024px;
+  display: inline-block;
+
+  &__element {
+	min-height: 40px;
+	border: 1px solid $border-gray;
+	border-width: 0px 0px 1px 0px;
+	padding: 6px 12px;
+	display: inline-block;
+	margin: 12px 12px;
+  }
+
+  &__element-title {
+	display: block;
+	font-size: 18px;
+	margin-bottom: 4px;
+  }
+
+  &__element-desc {
+	display: block;
+	color: gray;
+	font-size: 14px;
+  }
+}
